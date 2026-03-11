@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://mysql6.sqlpub.com:3311/smart_notes?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: user_ljm
+    password: "GLjNu9jvtYkvTcEz"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 300MB
+  redis:
+    host: redis-14398.crce264.ap-east-1-1.ec2.cloud.redislabs.com
+    port: 14398
+    password: "9BkUrAlRjJcwtKytr7EHOK9oP2E3MRP8"
+    database: 0
+
+
+
+
+server:
+  port: 8081
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+jwt:
+  secretKey: "hVg1LcycfyZCJd0YPVujGKE1KtL7ntmHEHmXFAE10jcwPRopYiVAxQcaUxB4ZKFgDUCgBxY8ujMU4ZuNuhciAjPUmWG199ztEXwy"
+
+
+
+
+knife4j:
+  enable: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.basketball.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  type-enums-package: com.basketball.enums
