@@ -1,0 +1,9 @@
+target/
+.idea/
+.run/
+logs/
+illya.icu.jks
+
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
