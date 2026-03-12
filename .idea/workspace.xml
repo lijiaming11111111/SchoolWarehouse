@@ -5,136 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(添加文件):">
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/annotation/CleanUpFilesOnError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/annotation/FilePreSignature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/annotation/FileUpload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/context/BaseContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/context/FileUploadContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/exception/BaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/exception/file/FileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/exception/stadium/StadiumException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/exception/user/UserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/result/PageResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/result/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/util/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/common/src/main/java/com/basketball/util/ValidatorUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/role/RoleMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/role/RolePermission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/user/UserBasicsData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/user/UserLoginData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/user/UserLoginVerifyData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/event/AddEventDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/event/UpdateEventDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/event/UpdateEventTeamDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/DeleteBatchMatchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/MatchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/SelectMatchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/UpdateMatchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/score/DeleteMatchScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/score/InsertMatchScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/score/PageSelectMatchScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/score/SelectMatchScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match/score/UpdateMatchScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match_score/DeleteTeamScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match_score/ManualAdjustScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/match_score/SelectMatchScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/photo/SelectMatchPhotoListDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/photo/UploadPhotoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/player/AddPlayerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/player/UpdatePlayerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/score/SelectOneEventScoreDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/team/AddTeamDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/team/SelectTeamDetailDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/team/SelectTeamsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/team/UpdateTeamDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/user/UserLoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/video/SelectAllVideoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/video/UploadVideoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/volunteer/SelectVolunteerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/volunteer/UpdateVolunteerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/dto/volunteer/VolunteerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/BasketballMatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/File.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/MatchPhoto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/MatchScore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Stadium.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Team.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/TeamInEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Video.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/entity/Volunteer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/enums/redis/RedisPrefix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/enums/role/RoleType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/stadium/AddStadiumDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/stadium/StadiumPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/stadium/UpdateStadiumDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/Stadium/PageStadiumVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/ValidationError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/ballMatch/SelectDetailedMatchVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/ballMatch/SelectMatchVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/event/SelectEventListVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/event/SelectEventVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/file/FileDataVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/match/score/PageSelectMatchScoreVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/match/score/SelectMatchScoreVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/photo/SelectAllMatchPhotoVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/photo/SelectMatchPhotoVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/player/PlayerVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/player/SelectPlayerVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/RoleDataVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/RoleGroupListVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/RoleLinkedUserVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/RoleMenuPermissionVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/menu/MenuVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/permission/MenuPermissionVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/role/permission/PermissionVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/score/SelectEventScoreVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/score/SelectOneEventScoreVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/team/SelectTeamDetailVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/team/SelectTeamsVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/user/CurrentUserDataVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/user/UserLoginVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/video/GetVideoDetailsVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/video/SelectAllVideoVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/volunteer/VolunteerVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/ServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/MinioConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/interceptor/JwtTokenInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/interceptor/LoginInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/MatchMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/MatchPhotoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/MatchScoreMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/PlayerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/ScoreMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/StadiumMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/TeamMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/VideoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/VolunteerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/UserImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/application-test.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/EventMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/FileMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/MatchMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/MatchPhotoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/MatchScoreMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/PlayerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/ScoreMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/StadiumMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/TeamMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/TournamentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/VideoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/VolunteerMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54bbc0d3-e45b-4c23-8a0e-8c2eb601b472.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54bbc0d3-e45b-4c23-8a0e-8c2eb601b472.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579f4dfd-a983-4204-8327-71ed2273b000.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/579f4dfd-a983-4204-8327-71ed2273b000.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/application-test.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,44 +27,44 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="3AnTCyFnr9sCVdjrXySsD9yvJH0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ServerApplication.executor": "Run",
-    "git-widget-placeholder": "smartNotes",
-    "jdk.selected.JAVA_MODULE": "openjdk-22 (2)",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SchoolWarehouse/smartNotes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;smartNotes&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22 (2)&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SchoolWarehouse/smartNotes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SchoolWarehouse\smartNotes" />
@@ -220,7 +95,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773227210318</updated>
-      <workItem from="1773227211699" duration="1584000" />
+      <workItem from="1773227211699" duration="1884000" />
+      <workItem from="1773274319734" duration="2479000" />
+      <workItem from="1773277429829" duration="1618000" />
+      <workItem from="1773311114727" duration="2433000" />
     </task>
     <task id="LOCAL-00001" summary="feat(添加文件):">
       <option name="closed" value="true" />
@@ -230,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773228191554</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat(添加文件):">
+      <option name="closed" value="true" />
+      <created>1773229046020</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1773229046020</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
