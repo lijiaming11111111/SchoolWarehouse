@@ -1,16 +1,13 @@
 package server.service;
 
 import com.basketball.dto.user.UserLoginDTO;
-import com.basketball.vo.role.menu.MenuVO;
 import com.basketball.vo.user.CurrentUserDataVO;
 import com.basketball.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 public interface UserService {
 
@@ -19,9 +16,10 @@ public interface UserService {
      *
      * @param dto      账号，密码
      * @param response
+     * @param session  会话对象
      * @return 用户信息，token
      */
-    UserLoginVO login(UserLoginDTO dto, HttpServletResponse response) throws JsonProcessingException;
+    UserLoginVO login(UserLoginDTO dto, HttpServletResponse response, HttpSession session) throws JsonProcessingException;
 
     /**
      * 获取当前用户信息

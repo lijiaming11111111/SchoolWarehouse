@@ -17,12 +17,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import server.interceptor.OnlineUserManager;
 import server.mapper.UserMapper;
 import server.service.UserService;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -37,11 +39,14 @@ public class UserImpl implements UserService {
 
     private final ObjectMapper objectMapper;
 
+
+    private final OnlineUserManager onlineUserManager;
+
     @Value("${jwt.secretKey}")
     private String jwtSecretKey;
 
     @Override
-    public UserLoginVO login(UserLoginDTO dto, HttpServletResponse response) throws JsonProcessingException {
+    public UserLoginVO login(UserLoginDTO dto, HttpServletResponse response, HttpSession session) throws JsonProcessingException {
         // 1. 查询用户
         UserLoginVerifyData user = userMapper.getUserLoginDataByAccount(dto.getTelephone());
         if (user == null) {
@@ -76,16 +81,19 @@ public class UserImpl implements UserService {
         Cookie cookie = new Cookie("token", token);
         cookie.setPath("/");
         cookie.setHttpOnly(true);
-
         if (Boolean.TRUE.equals(dto.getRememberMe())) {
             cookie.setMaxAge(7 * 24 * 60 * 60);
         } else {
             cookie.setMaxAge(-1);
         }
-
         response.addCookie(cookie);
 
-        // 返回
+        // ====================== 关键修复：统一存 String ======================
+        String userId = String.valueOf(user.getId());
+        session.setAttribute("userId", userId);
+        onlineUserManager.addUser(userId);
+
+        // 4. 返回
         return UserLoginVO.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
@@ -112,6 +120,16 @@ public class UserImpl implements UserService {
                     break;
                 }
             }
+        }
+
+        HttpSession session = request.getSession(false); // false 表示不存在时不创建新 Session
+        if (session != null) {
+            Object userIdObj = session.getAttribute("userId");
+            if (userIdObj != null) {
+                String userId = userIdObj.toString(); // 不管是 Long 还是 String，都转成 String
+                onlineUserManager.removeUser(userId);
+            }
+            session.invalidate();
         }
 
         if (token != null) {

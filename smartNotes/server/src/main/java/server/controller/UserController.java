@@ -12,10 +12,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import server.interceptor.OnlineUserManager;
 import server.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @RestController
@@ -28,11 +30,14 @@ import javax.validation.Valid;
 public class UserController {
     private final UserService userService;
 
+    private final OnlineUserManager onlineUserManager;
+
     @PostMapping("/login")
     @Operation(summary = "登录")
     @ApiOperationSupport(author = "燕怡明")
-    public Result<UserLoginVO> login(@Valid @RequestBody UserLoginDTO dto, HttpServletResponse response) throws JsonProcessingException {
-        return Result.success("登陆成功",userService.login(dto,response));
+    public Result<UserLoginVO> login(@Valid @RequestBody UserLoginDTO dto, HttpServletResponse response, HttpSession session)
+            throws JsonProcessingException {
+        return Result.success("登陆成功",userService.login(dto,response,session));
     }
 
     @GetMapping("/getCurrentUserData")
@@ -51,5 +56,10 @@ public class UserController {
     ) {
         userService.logout(request, response);
         return Result.success("退出成功");
+    }
+
+    @GetMapping("/isOnline/{userId}")
+    public boolean isOnline(@PathVariable String userId) {
+        return onlineUserManager.isOnline(userId);
     }
 }
