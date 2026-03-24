@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(添加文件):">
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/interceptor/OnlineUserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/interceptor/OnlineUserSessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/user/UserLoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/bo/user/UserLoginData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/Stadium/PageStadiumVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/ballMatch/SelectDetailedMatchVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/ballMatch/SelectMatchVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/event/SelectEventListVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/event/SelectEventVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/match/score/PageSelectMatchScoreVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/match/score/SelectMatchScoreVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/photo/SelectAllMatchPhotoVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/photo/SelectMatchPhotoVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/player/PlayerVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/player/SelectPlayerVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/score/SelectEventScoreVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/score/SelectOneEventScoreVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/team/SelectTeamDetailVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/team/SelectTeamsVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/user/UserLoginVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/user/UserLoginVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/video/GetVideoDetailsVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/video/SelectAllVideoVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/basketball/vo/volunteer/VolunteerVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/UserImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(添加用户在线判断):" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,6 +107,7 @@
       <workItem from="1773743060707" duration="562000" />
       <workItem from="1774247216451" duration="2188000" />
       <workItem from="1774261193600" duration="4126000" />
+      <workItem from="1774315031088" duration="351000" />
     </task>
     <task id="LOCAL-00001" summary="feat(添加文件):">
       <option name="closed" value="true" />
@@ -168,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773313932386</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(添加用户在线判断):">
+      <option name="closed" value="true" />
+      <created>1774315067449</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774315067449</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +157,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(添加文件):" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(添加文件):" />
+    <MESSAGE value="feat(添加用户在线判断):" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(添加用户在线判断):" />
   </component>
 </project>
