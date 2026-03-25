@@ -1,15 +1,15 @@
 package server.service.impl;
 
-import com.basketball.bo.user.UserLoginData;
-import com.basketball.bo.user.UserLoginVerifyData;
-import com.basketball.context.BaseContext;
-import com.basketball.dto.user.UserLoginDTO;
-import com.basketball.enums.redis.RedisPrefix;
-import com.basketball.exception.BaseException;
-import com.basketball.exception.user.UserException;
-import com.basketball.util.JwtUtil;
-import com.basketball.vo.user.CurrentUserDataVO;
-import com.basketball.vo.user.UserLoginVO;
+import com.smartNotes.bo.user.UserLoginData;
+import com.smartNotes.bo.user.UserLoginVerifyData;
+import com.smartNotes.context.BaseContext;
+import com.smartNotes.dto.user.UserLoginDTO;
+import com.smartNotes.enums.redis.RedisPrefix;
+import com.smartNotes.exception.BaseException;
+import com.smartNotes.exception.user.UserException;
+import com.smartNotes.util.JwtUtil;
+import com.smartNotes.vo.user.CurrentUserDataVO;
+import com.smartNotes.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;

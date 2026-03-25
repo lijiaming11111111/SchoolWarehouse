@@ -1,8 +1,8 @@
 package server.service;
 
-import com.basketball.dto.user.UserLoginDTO;
-import com.basketball.vo.user.CurrentUserDataVO;
-import com.basketball.vo.user.UserLoginVO;
+import com.smartNotes.dto.user.UserLoginDTO;
+import com.smartNotes.vo.user.CurrentUserDataVO;
+import com.smartNotes.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javax.servlet.http.HttpServletRequest;

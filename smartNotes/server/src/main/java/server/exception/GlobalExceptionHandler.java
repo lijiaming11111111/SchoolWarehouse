@@ -1,7 +1,7 @@
 package server.exception;
-import com.basketball.exception.BaseException;
-import com.basketball.result.Result;
-import com.basketball.vo.ValidationError;
+import com.smartNotes.exception.BaseException;
+import com.smartNotes.result.Result;
+import com.smartNotes.vo.ValidationError;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

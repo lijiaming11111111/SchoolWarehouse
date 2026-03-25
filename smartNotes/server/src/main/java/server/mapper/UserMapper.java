@@ -1,7 +1,7 @@
 package server.mapper;
 
-import com.basketball.bo.user.UserLoginVerifyData;
-import com.basketball.vo.user.CurrentUserDataVO;
+import com.smartNotes.bo.user.UserLoginVerifyData;
+import com.smartNotes.vo.user.CurrentUserDataVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

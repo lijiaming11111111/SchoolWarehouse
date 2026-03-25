@@ -1,7 +1,7 @@
 package server.interceptor;
 
-import com.basketball.enums.redis.RedisPrefix;
-import com.basketball.util.JwtUtil;
+import com.smartNotes.enums.redis.RedisPrefix;
+import com.smartNotes.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;

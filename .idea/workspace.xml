@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(添加用户在线判断):">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" afterDir="false" />
-    </list>
+    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(添加用户在线判断):" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +110,7 @@
       <workItem from="1774315031088" duration="2207000" />
       <workItem from="1774347940116" duration="4383000" />
       <workItem from="1774403125456" duration="983000" />
-      <workItem from="1774404153499" duration="1853000" />
+      <workItem from="1774404153499" duration="2587000" />
     </task>
     <task id="LOCAL-00001" summary="feat(添加文件):">
       <option name="closed" value="true" />
@@ -163,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774315402265</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat(添加用户在线判断):">
+      <option name="closed" value="true" />
+      <created>1774407212339</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774407212339</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

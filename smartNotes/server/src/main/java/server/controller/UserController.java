@@ -1,9 +1,9 @@
 package server.controller;
 
-import com.basketball.dto.user.UserLoginDTO;
-import com.basketball.result.Result;
-import com.basketball.vo.user.CurrentUserDataVO;
-import com.basketball.vo.user.UserLoginVO;
+import com.smartNotes.dto.user.UserLoginDTO;
+import com.smartNotes.result.Result;
+import com.smartNotes.vo.user.CurrentUserDataVO;
+import com.smartNotes.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import io.swagger.v3.oas.annotations.Operation;

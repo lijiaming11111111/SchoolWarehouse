@@ -1,12 +1,11 @@
 package server.interceptor;
 
-import com.basketball.bo.user.UserLoginData;
-import com.basketball.context.BaseContext;
-import com.basketball.enums.redis.RedisPrefix;
-import com.basketball.exception.BaseException;
-import com.basketball.result.Result;
-import com.basketball.util.JwtUtil;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.smartNotes.bo.user.UserLoginData;
+import com.smartNotes.context.BaseContext;
+import com.smartNotes.enums.redis.RedisPrefix;
+import com.smartNotes.exception.BaseException;
+import com.smartNotes.result.Result;
+import com.smartNotes.util.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -21,9 +20,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * @author Refjttria
