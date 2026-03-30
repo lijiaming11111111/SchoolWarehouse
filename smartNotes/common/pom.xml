@@ -40,6 +40,12 @@
             <version>8.5.11</version>
         </dependency>
 
+        <!-- WebSocket（聊天核心通信） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
     </dependencies>
 
     <properties>

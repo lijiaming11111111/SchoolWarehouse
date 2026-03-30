@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
-    @Select("select * from administrator where telephone=#{telephone}")
+    @Select("select * from user where telephone=#{telephone}")
     UserLoginVerifyData getUserLoginDataByAccount(String telephone);
 
     /**
@@ -15,6 +15,6 @@ public interface UserMapper {
      * @param id 用户ID
      * @return 当前用户信息
      */
-    @Select("select * from administrator where id=#{id}")
+    @Select("select * from user where id=#{id}")
     CurrentUserDataVO getUserBasicDataById(Long id);
 }

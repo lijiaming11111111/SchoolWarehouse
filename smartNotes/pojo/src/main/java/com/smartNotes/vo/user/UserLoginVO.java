@@ -13,11 +13,8 @@ public class UserLoginVO {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
-    @Schema(description = "名")
-    private String firstName;
-
-    @Schema(description = "姓")
-    private String lastName;
+    @Schema(description = "账号名称")
+    private String name;
 
     @Schema(description = "token")
     private String token;

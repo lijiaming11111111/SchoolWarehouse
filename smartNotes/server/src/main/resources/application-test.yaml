@@ -15,8 +15,17 @@ spring:
     password: "9BkUrAlRjJcwtKytr7EHOK9oP2E3MRP8"
     database: 0
 
+minio:
+  endpoint: "http://47.118.31.5:9000"
+  accessKey: "minioadmin"
+  secretKey: "minioadmin"
+  bucket: "notes"
 
-
+file:
+  url: " http://47.118.31.5:8080/file/download"
+  pre-signature:
+    secret-key : "MKYYRDzdKc23uM1VNqiNh4shzCGcfpH0"
+    expire: 5
 
 server:
   port: 8080

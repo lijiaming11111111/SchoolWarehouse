@@ -96,8 +96,7 @@ public class UserImpl implements UserService {
         // 4. 返回
         return UserLoginVO.builder()
                 .id(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
+                .name(user.getName())
                 .token(token)
                 .build();
     }
