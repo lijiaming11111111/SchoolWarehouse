@@ -28,7 +28,7 @@ file:
     expire: 5
 
 server:
-  port: 8080
+  port: 8081
   servlet:
     encoding:
       charset: UTF-8
