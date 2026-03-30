@@ -9,9 +9,8 @@ import io.jsonwebtoken.security.Keys;
 import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.Map;
-
 /**
- * @author Refjttria
+ * @author 厉佳铭
  *
  * JWT令牌工具
  */

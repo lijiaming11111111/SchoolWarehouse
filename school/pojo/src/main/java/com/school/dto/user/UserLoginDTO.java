@@ -8,10 +8,9 @@ import javax.validation.constraints.Size;
 
 @Data
 public class UserLoginDTO {
-
-    @Schema(description = "手机号",required = true)
+    @Schema(description = "账号（手机号或邮箱）", required = true)
     @NotBlank(message = "账号为空")
-    private String telephone;
+    private String account;
 
     @Schema(description = "密码",required = true)
     @NotBlank(message = "密码为空")

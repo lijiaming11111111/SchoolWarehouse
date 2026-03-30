@@ -1,8 +1,10 @@
 package server.service;
 
-import com.school.dto.user.UserLoginDTO;
+import com.school.dto.user.*;
+import com.school.result.PageResult;
 import com.school.vo.role.menu.MenuVO;
 import com.school.vo.user.CurrentUserDataVO;
+import com.school.vo.user.PageQueryUserVO;
 import com.school.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -35,4 +37,14 @@ public interface UserService {
      * @param response
      */
     void logout(HttpServletRequest request, HttpServletResponse response);
+
+    String addUser(AddUserDTO addUserDTO, MultipartFile face);
+
+    Boolean deleteUser(DeleteUserDTO deleteUserDTO);
+
+    PageResult<PageQueryUserVO> pageQueryUser(PageQueryUserDTO queryDTO);
+
+    Boolean updateUser(UpdateUserDTO updateUserDto, MultipartFile face);
+
+    Boolean resetPassword(ResetPasswordDTO resetPasswordDTO);
 }

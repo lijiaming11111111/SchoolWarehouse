@@ -94,7 +94,7 @@
 
     <build>
 
-        <finalName>basketball</finalName>
+        <finalName>schoolwarehouse</finalName>
 
         <plugins>
             <plugin>

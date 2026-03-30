@@ -9,14 +9,13 @@ public class UserLoginVerifyData {
     @Schema(description = "用户ID")
     private Long id;
 
-    @Schema(description = "名")
-    private String firstName;
+    @Schema(description = "用户姓名")
+    private String userName;
 
-    @Schema(description = "姓")
-    private String lastName;
+    @Schema(description = "用户账号")
+    private String userAccount;
 
     @Schema(description = "密码")
     private String password;
-
 
 }

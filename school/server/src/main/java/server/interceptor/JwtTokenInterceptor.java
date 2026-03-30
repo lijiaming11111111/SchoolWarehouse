@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * @author Refjttria
+ * @author 厉佳铭
  * jwt令牌校验的拦截器
  * 身份验证，权限验证
  */
