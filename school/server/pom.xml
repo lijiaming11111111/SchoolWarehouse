@@ -94,7 +94,7 @@
 
     <build>
 
-        <finalName>schoolwarehouse</finalName>
+        <finalName>school</finalName>
 
         <plugins>
             <plugin>
