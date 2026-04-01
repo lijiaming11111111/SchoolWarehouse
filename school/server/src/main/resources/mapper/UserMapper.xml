@@ -20,31 +20,33 @@
     </resultMap>
     <update id="updateUser">
         UPDATE user
-        SET
-        <if test="userName != null">
-            user_name = #{userName},
-        </if>
-        <if test="userAccount != null">
-            user_account = #{userAccount},
-        </if>
-        <if test="telephone != null">
-            telephone = #{telephone},
-        </if>
-        <if test="gender != null">
-            gender = #{gender},
-        </if>
-        <if test="password != null">
-            password = #{password},
-        </if>
-        <if test="email != null">
-            email = #{email},
-        </if>
-        <if test="departmentId != null">
-            department_id = #{departmentId},
-        </if>
-        <if test="imageAddress != null">
-            image_address = #{imageAddress}
-        </if>
+        <set>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="userAccount != null">
+                user_account = #{userAccount},
+            </if>
+            <if test="telephone != null">
+                telephone = #{telephone},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="departmentId != null">
+                department_id = #{departmentId},
+            </if>
+            <if test="imageAddress != null">
+                image_address = #{imageAddress}
+            </if>
+        </set>
+
         WHERE id = #{id}
     </update>
 
