@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(新增用户):">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/dto/group/CreateGroupDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupApply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupMember.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/role/ApplyStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/ApplyStatusConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/GroupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/handler/ChatMessageSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupApplyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupMemberMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/GroupService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/GroupServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/GroupMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/GroupMember.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/role/RoleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/role/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/role/RoleGroupListVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/role/RoleGroupListVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" afterDir="false" />
-    </list>
+    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,6 +138,7 @@
       <workItem from="1775012238557" duration="1705000" />
       <workItem from="1775017366281" duration="8077000" />
       <workItem from="1775039015273" duration="4535000" />
+      <workItem from="1775087318467" duration="3207000" />
     </task>
     <task id="LOCAL-00001" summary="feat(添加文件):">
       <option name="closed" value="true" />
@@ -237,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774831116867</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):">
+      <option name="closed" value="true" />
+      <created>1775092428398</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1775092428398</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +242,7 @@
     <MESSAGE value="feat(添加用户在线判断):" />
     <MESSAGE value="fix(重构目录名称):" />
     <MESSAGE value="feat(新增用户):" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(新增用户):" />
+    <MESSAGE value="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):" />
   </component>
 </project>
