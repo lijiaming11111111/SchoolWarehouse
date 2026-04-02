@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(新增用户):" />
+    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(新增用户):">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/dto/group/CreateGroupDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/ChatMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupApply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/role/ApplyStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/ApplyStatusConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/GroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/handler/ChatMessageSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupApplyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupMemberMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/GroupService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/GroupServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/GroupMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/GroupMember.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/role/RoleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/role/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/role/RoleGroupListVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/role/RoleGroupListVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/config/WebMvcConfiguration.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +39,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -46,6 +73,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.ServerApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;smartNotes&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22 (2)&quot;,
@@ -129,6 +157,13 @@
       <workItem from="1774784120565" duration="203000" />
       <workItem from="1774828674439" duration="835000" />
       <workItem from="1774831050767" duration="849000" />
+      <workItem from="1774844162110" duration="1548000" />
+      <workItem from="1774848886354" duration="2000" />
+      <workItem from="1774850216642" duration="722000" />
+      <workItem from="1774916281066" duration="3948000" />
+      <workItem from="1775012238557" duration="1705000" />
+      <workItem from="1775017366281" duration="8077000" />
+      <workItem from="1775039015273" duration="4535000" />
     </task>
     <task id="LOCAL-00001" summary="feat(添加文件):">
       <option name="closed" value="true" />

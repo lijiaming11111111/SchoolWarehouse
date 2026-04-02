@@ -8,17 +8,21 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Schema(description = "角色类型（1.系统预设；2.自定义）")
-public enum RoleType {
+@Schema(description = "角色类型（1.普通用户；2.管理员,3.群主）")
+public enum Role {
 
     /**
-     * 角色类型-系统预设
+     * 角色类型-普通用户
      */
-    SYSTEM(1, "系统预设"),
+    NORMAL(1, "普通用户"),
     /**
-     * 角色类型-自定义
+     * 角色类型-管理员
      */
-    CUSTOM(2, "自定义");
+    ADMIN(2, "管理员"),
+    /**
+     * 角色类型-群主
+     */
+    GROUP_OWNER(3, "群主");
 
     @JsonValue
     @EnumValue

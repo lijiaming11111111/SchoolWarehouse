@@ -3,6 +3,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,6 +21,9 @@ import java.util.List;
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     private final JwtTokenInterceptor jwtTokenInterceptor;
+
+    private final ApplyStatusConverter applyStatusConverter;
+
 
     /**
      * 注册自定义拦截器
@@ -60,6 +64,12 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                         .setDefaultCharset(StandardCharsets.UTF_8);
             }
         }
+    }
+
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(applyStatusConverter);
     }
 
 }

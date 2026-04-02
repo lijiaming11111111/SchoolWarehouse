@@ -46,6 +46,12 @@
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version> <!-- 稳定版本，适配 SpringBoot 2.x -->
+        </dependency>
+
     </dependencies>
 
     <properties>
