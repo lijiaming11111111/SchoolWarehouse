@@ -931,7 +931,7 @@ smart_notes|schema||user_ljm||UPDATE|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="smart_notes">
-      <LastIntrospectionLocalTimestamp>2026-03-27.03:10:30</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-04-07.11:20:38</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="291" parent="1" name="user_ljm"/>
@@ -946,225 +946,285 @@ smart_notes|schema||user_ljm||UPDATE|G</Grants>
 DYNAMIC</Options>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="294" parent="290" name="group_info">
+    <table id="294" parent="290" name="group_apply">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="295" parent="290" name="group_member">
+    <table id="295" parent="290" name="group_info">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="296" parent="290" name="user">
+    <table id="296" parent="290" name="group_member">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="297" parent="290" name="user">
       <Engine>InnoDB</Engine>
       <Options>row_format
 COMPACT</Options>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <column id="297" parent="292" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="298" parent="292" name="id">
+      <AutoIncrement>2039871587320377346</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="298" parent="292" name="group_id">
+    <column id="299" parent="292" name="group_id">
       <Comment>群聊时的目标群组 ID，私聊时为NULL</Comment>
       <DasType>bigint|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="299" parent="292" name="sender_id">
+    <column id="300" parent="292" name="sender_id">
       <Comment>发送者用户 ID，关联user表</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="300" parent="292" name="receiver_id">
+    <column id="301" parent="292" name="receiver_id">
       <Comment>私聊时的接收者用户 ID，群聊时为NULL</Comment>
       <DasType>bigint|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="301" parent="292" name="content">
+    <column id="302" parent="292" name="content">
       <Comment>消息内容</Comment>
       <DasType>text|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="302" parent="292" name="send_time">
+    <column id="303" parent="292" name="send_time">
       <Comment>消息发送时间</Comment>
       <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>6</Position>
     </column>
-    <column id="303" parent="292" name="file_id">
+    <column id="304" parent="292" name="file_id">
       <Comment>文件id</Comment>
       <DasType>bigint|0s</DasType>
       <Position>7</Position>
     </column>
-    <index id="304" parent="292" name="PRIMARY">
+    <index id="305" parent="292" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="305" parent="292" name="PRIMARY">
+    <key id="306" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="306" parent="293" name="id">
+    <column id="307" parent="293" name="id">
       <Comment>文件ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="307" parent="293" name="file_name">
+    <column id="308" parent="293" name="file_name">
       <Comment>源文件名</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="308" parent="293" name="object_name">
+    <column id="309" parent="293" name="object_name">
       <Comment>对象名</Comment>
       <DasType>varchar(50)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="309" parent="293" name="bucket_name">
+    <column id="310" parent="293" name="bucket_name">
       <Comment>存储桶名称</Comment>
       <DasType>varchar(30)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="310" parent="293" name="upload_time">
+    <column id="311" parent="293" name="upload_time">
       <Comment>上传时间</Comment>
       <DasType>datetime|0s</DasType>
       <Position>5</Position>
     </column>
-    <index id="311" parent="293" name="PRIMARY">
+    <index id="312" parent="293" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="312" parent="293" name="PRIMARY">
+    <key id="313" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="313" parent="294" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="314" parent="294" name="id">
+      <AutoIncrement>2039306507176423426</AutoIncrement>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="315" parent="294" name="group_id">
+      <Comment>申请群聊id</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="316" parent="294" name="user_id">
+      <Comment>申请人ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="317" parent="294" name="apply_status">
+      <Comment>0=待审核 1=同意 2=拒绝</Comment>
+      <DasType>tinyint|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>4</Position>
+    </column>
+    <column id="318" parent="294" name="apply_time">
+      <Comment>申请时间</Comment>
+      <DasType>datetime|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+    </column>
+    <index id="319" parent="294" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="320" parent="294" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="321" parent="295" name="id">
       <Comment>群组id</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="314" parent="294" name="group_name">
+    <column id="322" parent="295" name="group_name">
       <Comment>群组名称</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="315" parent="294" name="owner_id">
+    <column id="323" parent="295" name="owner_id">
       <Comment>群主 / 创建者的用户 ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="316" parent="294" name="create_time">
+    <column id="324" parent="295" name="create_time">
       <Comment>群组创建时间</Comment>
       <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>4</Position>
     </column>
-    <index id="317" parent="294" name="PRIMARY">
+    <column id="325" parent="295" name="group_photo_id">
+      <Comment>群聊头像</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <index id="326" parent="295" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="318" parent="294" name="PRIMARY">
+    <key id="327" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="319" parent="295" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="328" parent="296" name="id">
+      <AutoIncrement>2039650674498940931</AutoIncrement>
       <Comment>成员记录唯一 ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="320" parent="295" name="group_id">
+    <column id="329" parent="296" name="group_id">
       <Comment>所属群组 ID，关联group_info表</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="321" parent="295" name="user_id">
+    <column id="330" parent="296" name="user_id">
       <Comment>成员用户 ID，关联user表</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="322" parent="295" name="role">
-      <Comment>成员角色：默认 1 = 普通成员，2 = 管理员 / 群主</Comment>
+    <column id="331" parent="296" name="role">
+      <Comment>成员角色：默认 1 = 普通成员，2 = 管理员 ，3= 群主</Comment>
       <DasType>tinyint|0s</DasType>
       <DefaultExpression>1</DefaultExpression>
       <Position>4</Position>
     </column>
-    <column id="323" parent="295" name="join_time">
+    <column id="332" parent="296" name="join_time">
       <Comment>加入群组的时间</Comment>
       <DasType>datetime|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>5</Position>
     </column>
-    <index id="324" parent="295" name="PRIMARY">
+    <column id="333" parent="296" name="mute">
+      <Comment>是否禁言：1禁言 0正常</Comment>
+      <DasType>tinyint|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>6</Position>
+    </column>
+    <column id="334" parent="296" name="mute_end_time">
+      <Comment>禁言结束时间</Comment>
+      <DasType>datetime|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="335" parent="296" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="325" parent="295" name="uk_group_user">
+    <index id="336" parent="296" name="uk_group_user">
       <ColNames>group_id
 user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="326" parent="295" name="PRIMARY">
+    <key id="337" parent="296" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="327" parent="295" name="uk_group_user">
+    <key id="338" parent="296" name="uk_group_user">
       <UnderlyingIndexName>uk_group_user</UnderlyingIndexName>
     </key>
-    <column id="328" parent="296" name="id">
-      <DasType>int|0s</DasType>
+    <column id="339" parent="297" name="id">
+      <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="329" parent="296" name="name">
+    <column id="340" parent="297" name="name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="330" parent="296" name="gender">
-      <DasType>varchar(10)|0s</DasType>
+    <column id="341" parent="297" name="gender">
+      <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="331" parent="296" name="telephone">
+    <column id="342" parent="297" name="telephone">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="332" parent="296" name="password">
+    <column id="343" parent="297" name="password">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="333" parent="296" name="photo_id">
+    <column id="344" parent="297" name="photo_id">
       <DasType>bigint|0s</DasType>
       <Position>6</Position>
     </column>
-    <index id="334" parent="296" name="PRIMARY">
+    <index id="345" parent="297" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="335" parent="296" name="PRIMARY">
+    <key id="346" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

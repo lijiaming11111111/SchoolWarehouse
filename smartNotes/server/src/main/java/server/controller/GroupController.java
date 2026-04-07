@@ -4,9 +4,12 @@ package server.controller;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.smartNotes.context.BaseContext;
 import com.smartNotes.dto.group.CreateGroupDTO;
+import com.smartNotes.dto.group.PageQueryGroupDTO;
 import com.smartNotes.entity.GroupApply;
 import com.smartNotes.enums.role.ApplyStatus;
+import com.smartNotes.result.PageResult;
 import com.smartNotes.result.Result;
+import com.smartNotes.vo.group.PageQueryGroupVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -15,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import server.service.GroupService;
 
 import javax.annotation.Resource;
@@ -38,8 +42,9 @@ public class GroupController {
     @PostMapping("/createGroup")
     @Operation(summary = "创建群聊")
     @ApiOperationSupport(author = "燕怡明")
-    public Result<String> createGroup(@Valid @RequestBody CreateGroupDTO createGroupDTO) {
-        String newGroupId = groupService.createGroup(createGroupDTO);
+    public Result<String> createGroup(@RequestPart("dto")@Valid CreateGroupDTO dto,
+                                      @RequestPart("photo") MultipartFile photo) {
+        String newGroupId = groupService.createGroup(dto, photo);
         return Result.success("创建成功",newGroupId);
     }
 
@@ -90,6 +95,55 @@ public class GroupController {
                                           @NotNull(message = "审核状态不能为空") ApplyStatus applyStatus) {
         groupService.auditApply(applyId,applyStatus);
         return Result.success("审核成功",true);
+    }
+
+    @PostMapping("/kickMember")
+    @Operation(summary = "踢出群聊 ")
+    @ApiOperationSupport(author = "燕怡明")
+    public Result<Boolean> kickMember(@Valid@Schema(description = "群组id") @RequestParam
+                                          @Parameter(description = "群组id")
+                                          @NotBlank(message = "群组id不能为空") String groupId,
+                                          @Valid@Schema(description = "用户id") @RequestParam
+                                          @Parameter(description = "被踢出的用户id")
+                                          @NotBlank(message = "被踢出的用户id不能为空") String targetUserId) {
+        groupService.kickMember(groupId, targetUserId);
+        return Result.success("踢出成功",true);
+    }
+
+    @PostMapping("/manageAdmin")
+    @Operation(summary = "设置/取消管理员 ")
+    @ApiOperationSupport(author = "燕怡明")
+    public Result<Boolean> manageAdmin(@Valid@Schema(description = "群组id") @RequestParam
+                                      @Parameter(description = "群组id")
+                                      @NotBlank(message = "群组id不能为空") String groupId,
+                                      @Valid@Schema(description = "用户id") @RequestParam
+                                      @Parameter(description = "被踢出的用户id")
+                                      @NotBlank(message = "被踢出的用户id不能为空") String targetUserId,
+                                       @Valid@Schema(description = "操作类型(1设置管理员,2 取消管理员)") @RequestParam
+                                           @Parameter(description = "操作类型(1设置管理员,2 取消管理员)")
+                                           @NotNull(message = "操作类型不能为空") Integer type) {
+        groupService.manageAdmin(groupId, targetUserId,type);
+        return Result.success("操作成功",true);
+    }
+
+
+    @PostMapping("/sendGroupMessage")
+    @Operation(summary = "发送群消息")
+    @ApiOperationSupport(author = "燕怡明")
+    public Result<Boolean> sendGroupMessage(
+            @RequestParam@Parameter(description = "群组id",required = true)String groupId,
+            @RequestParam@Parameter(description = "消息内容",required = true)String content,
+            @RequestParam(required = false)@Parameter(description = "文件")MultipartFile file)  {
+        groupService.sendGroupMessage(groupId, content,file);
+        return Result.success("发送成功",true);
+    }
+
+    @PostMapping("/pageQueryGroup")
+    @Operation(summary = "分页查询群组")
+    @ApiOperationSupport(author = "燕怡明")
+    public Result<PageResult<PageQueryGroupVO>> pageQueryGroup(@Valid @RequestBody PageQueryGroupDTO queryDTO) {
+        PageResult<PageQueryGroupVO> pageResult = groupService.pageQueryGroup(queryDTO);
+        return Result.success("查询成功", pageResult);
     }
 
 

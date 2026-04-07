@@ -1,5 +1,7 @@
 package server.controller;
 
+import com.smartNotes.dto.group.CreateGroupDTO;
+import com.smartNotes.dto.user.RegisterDTO;
 import com.smartNotes.dto.user.UserLoginDTO;
 import com.smartNotes.result.Result;
 import com.smartNotes.vo.user.CurrentUserDataVO;
@@ -12,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import server.interceptor.OnlineUserManager;
 import server.service.UserService;
 
@@ -61,5 +64,14 @@ public class UserController {
     @GetMapping("/isOnline/{userId}")
     public boolean isOnline(@PathVariable String userId) {
         return onlineUserManager.isOnline(userId);
+    }
+
+    @PostMapping("/register")
+    @Operation(summary = "注册")
+    @ApiOperationSupport(author = "燕怡明")
+    public Result<String> register(@RequestPart("dto")@Valid RegisterDTO dto,
+                                   @RequestPart("photo") MultipartFile photo)
+    {
+        return Result.success("注册成功",userService.register(dto,photo));
     }
 }

@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):" />
+    <list default="true" id="f0769fbf-4fe8-47be-ac4a-6e9e92efebcb" name="更改" comment="fix(升级Lombok版本):">
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/dto/group/PageQueryGroupDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/dto/user/RegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/group/Mute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/enums/user/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/group/PageQueryGroupVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/ChatMessageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/579f4dfd-a983-4204-8327-71ed2273b000.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/579f4dfd-a983-4204-8327-71ed2273b000.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/GroupMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/user/CurrentUserDataVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/pojo/src/main/java/com/smartNotes/vo/user/CurrentUserDataVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/interceptor/OnlineUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/interceptor/OnlineUserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/GroupMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/GroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/GroupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/GroupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/GroupServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/java/server/service/impl/UserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/application-test.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/GroupMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartNotes/server/src/main/resources/mapper/GroupMapper.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -138,7 +163,15 @@
       <workItem from="1775012238557" duration="1705000" />
       <workItem from="1775017366281" duration="8077000" />
       <workItem from="1775039015273" duration="4535000" />
-      <workItem from="1775087318467" duration="3207000" />
+      <workItem from="1775087318467" duration="4131000" />
+      <workItem from="1775109323177" duration="3384000" />
+      <workItem from="1775125327420" duration="4308000" />
+      <workItem from="1775173614002" duration="5391000" />
+      <workItem from="1775382904079" duration="388000" />
+      <workItem from="1775472934932" duration="2684000" />
+      <workItem from="1775522417488" duration="3331000" />
+      <workItem from="1775536210473" duration="2814000" />
+      <workItem from="1775557684608" duration="1268000" />
     </task>
     <task id="LOCAL-00001" summary="feat(添加文件):">
       <option name="closed" value="true" />
@@ -220,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775092428398</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix(升级Lombok版本):">
+      <option name="closed" value="true" />
+      <created>1775093279309</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1775093279309</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +284,7 @@
     <MESSAGE value="fix(重构目录名称):" />
     <MESSAGE value="feat(新增用户):" />
     <MESSAGE value="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(群聊（创建群聊、加入群聊、申请加入群聊、群主/管理员查看【所有待我审核的申请】、查看我发起的申请、同意/拒绝审核申请）):" />
+    <MESSAGE value="fix(升级Lombok版本):" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(升级Lombok版本):" />
   </component>
 </project>

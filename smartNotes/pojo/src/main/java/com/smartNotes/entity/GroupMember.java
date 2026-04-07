@@ -1,5 +1,6 @@
 package com.smartNotes.entity;
 
+import com.smartNotes.enums.group.Mute;
 import com.smartNotes.enums.role.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -22,6 +23,12 @@ public class GroupMember {
 
     @Schema(description = "加入群组的时间")
     private LocalDateTime joinTime;
+
+    @Schema(description = "禁言状态（0.未禁言；1.已禁言）")
+    private Mute mute;
+
+    @Schema(description = "禁言结束时间")
+    private LocalDateTime muteEndTime;
 
 
 }

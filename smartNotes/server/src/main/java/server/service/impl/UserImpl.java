@@ -1,9 +1,14 @@
 package server.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
+import com.smartNotes.annotation.CleanUpFilesOnError;
+import com.smartNotes.annotation.FilePreSignature;
 import com.smartNotes.bo.user.UserLoginData;
 import com.smartNotes.bo.user.UserLoginVerifyData;
 import com.smartNotes.context.BaseContext;
+import com.smartNotes.dto.user.RegisterDTO;
 import com.smartNotes.dto.user.UserLoginDTO;
+import com.smartNotes.entity.User;
 import com.smartNotes.enums.redis.RedisPrefix;
 import com.smartNotes.exception.BaseException;
 import com.smartNotes.exception.user.UserException;
@@ -14,11 +19,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import server.interceptor.OnlineUserManager;
 import server.mapper.UserMapper;
+import server.service.FileService;
 import server.service.UserService;
 
 import javax.servlet.http.Cookie;
@@ -44,6 +52,8 @@ public class UserImpl implements UserService {
 
     @Value("${jwt.secretKey}")
     private String jwtSecretKey;
+
+    private final FileService fileService;
 
     @Override
     public UserLoginVO login(UserLoginDTO dto, HttpServletResponse response, HttpSession session) throws JsonProcessingException {
@@ -102,6 +112,7 @@ public class UserImpl implements UserService {
     }
 
     @Override
+    @FilePreSignature
     public CurrentUserDataVO getCurrentUserData() {
         return userMapper.getUserBasicDataById(BaseContext.getCurrentUserId());
     }
@@ -149,5 +160,20 @@ public class UserImpl implements UserService {
         cookie.setPath("/");
         cookie.setMaxAge(0); // 立即过期
         response.addCookie(cookie);
+    }
+
+    @Override
+    @CleanUpFilesOnError
+    public String register(RegisterDTO dto, MultipartFile photo) {
+        // 1. 校验手机号是否已注册
+        if (userMapper.getUserByTelephone(dto.getTelephone()) != null) {
+            throw new UserException("手机号已注册");
+        }
+        User user=new User();
+        BeanUtils.copyProperties(dto,user);
+        user.setId(String.valueOf(IdWorker.getId()));
+        user.setPhotoId(fileService.upload(photo).toString());
+        userMapper.register(user);
+        return user.getId();
     }
 }

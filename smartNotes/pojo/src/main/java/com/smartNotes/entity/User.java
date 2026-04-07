@@ -1,7 +1,10 @@
 package com.smartNotes.entity;
 
+import com.smartNotes.enums.user.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
 
 @Data
 public class User {
@@ -19,4 +22,7 @@ public class User {
 
     @Schema(description = "用户头像ID")
     private String photoId;
+
+    @Schema(description = "性别（0=男 1=女）")
+    private Gender gender;
 }

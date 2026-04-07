@@ -3,6 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="server.mapper.GroupMapper">
+    <resultMap id="Group" type="com.smartNotes.vo.group.PageQueryGroupVO">
+        <id property="id" column="id" />
+        <result property="groupName" column="group_name" />
+        <result property="ownerId" column="owner_id" />
+        <result property="createTime" column="create_time" />
+        <association property="photo" javaType="com.smartNotes.vo.file.FileDataVO">
+            <id column="file_id" property="id"/>
+            <result column="file_name" property="name"/>
+        </association>
+    </resultMap>
 
+    <select id="pageQueryGroup" resultMap="Group">
+        select group_info.id, group_info.group_name, group_info.owner_id, group_info.create_time, file.id as file_id, file.file_name
+        from group_info left join file on group_info.group_photo_id = file.id
+        <where>
+        <if test="groupName != null">
+            group_info.group_name like concat('%',#{groupName},'%')"
+        </if>
+        </where>
+    </select>
 
 </mapper>

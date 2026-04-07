@@ -25,4 +25,5 @@ public class OnlineUserManager {
     public boolean isOnline(String userId) {
         return onlineUsers.contains(userId);
     }
+
 }

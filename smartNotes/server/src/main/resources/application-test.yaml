@@ -22,7 +22,7 @@ minio:
   bucket: "notes"
 
 file:
-  url: " http://47.118.31.5:8080/file/download"
+  url: " http://47.118.31.5:8081/file/download"
   pre-signature:
     secret-key : "MKYYRDzdKc23uM1VNqiNh4shzCGcfpH0"
     expire: 5

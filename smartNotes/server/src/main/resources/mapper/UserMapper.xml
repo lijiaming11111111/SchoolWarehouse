@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mapper.UserMapper">
+    <resultMap id="CurrentUserData" type="com.smartNotes.vo.user.CurrentUserDataVO">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="gender" column="gender" />
+        <result property="telephone" column="telephone" />
+        <association property="photo" javaType="com.smartNotes.vo.file.FileDataVO">
+            <id column="file_id" property="id"/>
+            <result column="file_name" property="name"/>
+        </association>
+    </resultMap>
+
+    <select  id="getUserBasicDataById" resultMap="CurrentUserData">
+        select user.id, user.name, user.gender, user.telephone,
+               file.id as file_id, file.file_name
+        from user left join file on user.photo_id = file.id
+        where user.id = #{id}
+    </select>
+</mapper>

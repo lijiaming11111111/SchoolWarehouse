@@ -4,6 +4,7 @@ import com.smartNotes.dto.user.UserLoginDTO;
 import com.smartNotes.vo.user.CurrentUserDataVO;
 import com.smartNotes.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,4 +34,12 @@ public interface UserService {
      * @param response
      */
     void logout(HttpServletRequest request, HttpServletResponse response);
+
+    /**
+     * 用户注册
+     * @param dto 注册信息
+     * @param photo 头像
+     * @return 注册成功后的用户ID
+     */
+    String register(com.smartNotes.dto.user.RegisterDTO dto, MultipartFile photo);
 }
