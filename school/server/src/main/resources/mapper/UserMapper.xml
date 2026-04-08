@@ -18,6 +18,31 @@
             <result property="name" column="file_name" />
         </association>
     </resultMap>
+    <select id="pageQueryUser"  resultMap="userResultMap">
+        SELECT
+        u.id,
+        u.user_name,
+        u.user_account,
+        u.telephone,
+        u.gender,
+        u.password,
+        u.email,
+        u.department_id,
+        f.id as face,
+        f.file_name
+        FROM user u
+        LEFT JOIN file f ON u.image_address = f.id
+        <where>
+            <if test="userName != null">
+               u.user_name LIKE CONCAT('%', #{userName}, '%')
+            </if>
+            <if test="userAccount != null">
+                AND u.user_account LIKE CONCAT('%', #{userAccount}, '%')
+            </if>
+        </where>
+        GROUP BY u.id
+    </select>
+
     <update id="updateUser">
         UPDATE user
         <set>
@@ -46,34 +71,8 @@
                 image_address = #{imageAddress}
             </if>
         </set>
-
         WHERE id = #{id}
     </update>
-
-    <select id="pageQueryUser"  resultMap="userResultMap">
-        SELECT
-        u.id,
-        u.user_name,
-        u.user_account,
-        u.telephone,
-        u.gender,
-        u.password,
-        u.email,
-        u.department_id,
-        f.id as face,
-        f.file_name
-        FROM user u
-        LEFT JOIN file f ON u.image_address = f.id
-        <where>
-            <if test="userName != null">
-               u.user_name LIKE CONCAT('%', #{userName}, '%')
-            </if>
-            <if test="userAccount != null">
-                AND u.user_account LIKE CONCAT('%', #{userAccount}, '%')
-            </if>
-        </where>
-        GROUP BY u.id
-    </select>
 
     <resultMap id="userBasicDataById" type="com.school.vo.user.CurrentUserDataVO">
         <result property="id" column="id"/>
@@ -101,6 +100,19 @@
         LEFT JOIN file f ON u.image_address = f.id
         <where>
             u.id=#{id}
+        </where>
+    </select>
+    <select id="getUserLoginDataByAccount" resultType="com.school.bo.user.UserLoginVerifyData">
+        SELECT
+        u.id,
+        u.user_name,
+        u.user_account,
+        u.password,
+        ur.role_id
+        FROM user u
+        LEFT JOIN user_role ur ON u.id = ur.user_id
+        <where>
+            u.telephone=#{account} OR u.email=#{account}
         </where>
     </select>
 </mapper>

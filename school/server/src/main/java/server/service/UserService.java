@@ -2,7 +2,7 @@ package server.service;
 
 import com.school.dto.user.*;
 import com.school.result.PageResult;
-import com.school.vo.role.menu.MenuVO;
+
 import com.school.vo.user.CurrentUserDataVO;
 import com.school.vo.user.PageQueryUserVO;
 import com.school.vo.user.UserLoginVO;

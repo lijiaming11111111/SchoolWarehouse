@@ -15,6 +15,9 @@ public class UserLoginVerifyData {
     @Schema(description = "用户账号")
     private String userAccount;
 
+    @Schema(description = "角色ID")
+    private String roleId;
+
     @Schema(description = "密码")
     private String password;
 

@@ -17,6 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
+import server.mapper.RoleMapper;
+import server.mapper.UserMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,18 +40,11 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
 
     private final ObjectMapper objectMapper;
 
+    private final RoleMapper roleMapper;
+
     @Value("${jwt.secretKey}")
     private String jwtSecretKey;
 
-    /**
-     * 方法执行前运行
-     *
-     * @param request   请求
-     * @param response  响应
-     * @param handler   请求头
-     * @return  是否放行
-     * @throws IOException  IO异常
-     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         response.setContentType("application/json");
@@ -86,7 +81,54 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
                 response.getWriter().flush();
                 return false;
             }
-            return true;
+
+            // 获取角色ID
+            String roleId = userLoginData.getRoleId();
+            BaseContext.setCurrentUserRoleRoleId(roleId);
+            String requestPath = request.getRequestURI();
+
+//            // 白名单：基本用户操作直接放行
+//            if (requestPath.contains("/user/getCurrentUserData") || requestPath.contains("/user/logout")) {
+//                return true;
+//            }
+
+//            // 1. 从数据库查询用户权限
+//            try {
+//                List<String> userPermissions = roleMapper.selectUserPermissions(String.valueOf(userId));
+//                if (userPermissions != null && !userPermissions.isEmpty()) {
+//                    // 将请求路径转换为权限码格式（如 /user/getCurrentUserData → user:getCurrentUserData）
+//                    String permCode = requestPath.substring(1).replace("/", ":");
+//                    // 检查用户是否有该权限
+//                    if (userPermissions.contains(permCode)) {
+//                        return true;
+//                    }
+//                }
+//            } catch (Exception e) {
+//                // 数据库查询失败，继续检查角色权限
+//            }
+
+            //  如果用户无权限，检查角色权限
+            if (roleId != null && !roleId.isEmpty()) {
+                try {
+                    List<String> rolePermissions = roleMapper.selectRolePermissions(roleId);
+                    if (rolePermissions != null && !rolePermissions.isEmpty()) {
+                        // 将请求路径转换为权限码格式
+                        String permCode = requestPath.substring(1).replace("/", ":");
+                        // 检查角色是否有该权限
+                        if (rolePermissions.contains(permCode)) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                   throw new BaseException("获取角色权限失败");
+                }
+            }
+
+            // 未匹配到权限
+            response.setStatus(HttpStatus.FORBIDDEN.value());
+            response.getWriter().write(objectMapper.writeValueAsString(Result.error("无权限访问资源")));
+            response.getWriter().flush();
+            return false;
         } catch (Exception e) {
             if( e.getClass() == ExpiredJwtException.class ){
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());

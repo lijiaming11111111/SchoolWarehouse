@@ -13,7 +13,6 @@ import java.util.List;
 
 @Data
 public class UpdateUserDTO {
-
     @Schema(description = "用户ID", required = true)
     @NotNull(message = "未传入需要修改的用户")
     private String id;

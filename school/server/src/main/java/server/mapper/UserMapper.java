@@ -12,9 +12,11 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
-    @Select("SELECT id, user_name,user_account, password FROM user WHERE telephone = #{account} OR email = #{account}")
+
     UserLoginVerifyData getUserLoginDataByAccount(String telephone);
 
     /**

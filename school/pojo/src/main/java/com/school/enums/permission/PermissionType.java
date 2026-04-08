@@ -1,4 +1,4 @@
-package com.school.enums.role;
+package com.school.enums.permission;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -8,23 +8,21 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Schema(description = "角色类型（1.系统预设；2.自定义）")
-public enum RoleType {
-
+@Schema(description = "权限类型枚举对象(0=菜单 1=按钮)")
+public enum PermissionType {
     /**
-     * 角色类型-系统预设
+     * 权限类型枚举对象-菜单
      */
-    SYSTEM(1, "系统预设"),
+    MENU(0, "菜单"),
     /**
-     * 角色类型-自定义
+     * 权限类型枚举对象-按钮
      */
-    CUSTOM(2, "自定义");
+    BUTTON(1, "按钮");
 
     @JsonValue
     @EnumValue
     private final Integer code;
 
     private final String desc;
-
 
 }

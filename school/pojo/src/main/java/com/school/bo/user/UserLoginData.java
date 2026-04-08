@@ -9,6 +9,9 @@ public class UserLoginData {
     @Schema(description = "用户ID")
     private Long id;
 
+    @Schema(description = "角色ID")
+    private String roleId;
+
     @Schema(description = "当前Token")
     private String token;
 }

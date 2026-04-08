@@ -81,6 +81,7 @@ public class UserServiceImpl implements UserService {
 
         UserLoginData userLoginData = new UserLoginData();
         userLoginData.setId(user.getId());
+        userLoginData.setRoleId(user.getRoleId());
         userLoginData.setToken(token);
 
         redisTemplate.opsForValue().set(

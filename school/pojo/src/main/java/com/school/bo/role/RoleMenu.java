@@ -1,5 +1,5 @@
 package com.school.bo.role;
-import com.school.vo.role.menu.MenuVO;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -11,7 +11,7 @@ public class RoleMenu {
     @Schema(description = "角色ID")
     private Long id;
 
-    @Schema(description = "权限列表(path)")
-    private List<MenuVO> menus;
-    
+//    @Schema(description = "权限列表(path)")
+//    private List<MenuVO> menus;
+//
 }
