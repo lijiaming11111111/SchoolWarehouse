@@ -45,10 +45,10 @@
     </delete>
 
     <insert id="addRolePermission">
-        INSERT INTO role_permission (id,role_id, permission_id)
+        INSERT INTO role_permission (id, role_id, permission_id)
         VALUES
-        <foreach collection="addPermissionIdList" item="item" separator=",">
-            (#{id}, #{roleId}, #{item})
+        <foreach collection="permissionIds" item="permissionId" index="index" separator=",">
+            (#{ids[${index}]}, #{roleId}, #{permissionId})
         </foreach>
     </insert>
 
@@ -69,8 +69,10 @@
     </select>
 
     <select id="selectExistingPermissions" resultType="java.lang.String">
-        SELECT p.id FROM permission as p
-        WHERE p.id IN
+        SELECT p.name FROM role_permission
+        LEFT JOIN permission as p ON permission_id = p.id
+        WHERE role_id = #{id}
+        AND permission_id IN
         <foreach collection="addPermissionIdList" item="item" open="(" close=")" separator=",">
             #{item}
         </foreach>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mapper.ItemCategoryMapper">
+    <select id="pageQueryItemCategory" resultType="com.school.vo.item.category.PageSelectItemCategoryVO">
+        SELECT * FROM item_category
+    </select>
+
+    <resultMap id="itemCategoryTreeResultIdMap" type="com.school.vo.item.category.SelectItemCategoryTreeVO">
+        <id column="id" property="id" />
+        <result column="item_category_name" property="itemCategoryName" />
+        <result column="parent_id" property="parentId" />
+    </resultMap>
+    <select id="selectItemCategoryTree" resultMap="itemCategoryTreeResultIdMap">
+        SELECT * FROM item_category
+    </select>
+</mapper>

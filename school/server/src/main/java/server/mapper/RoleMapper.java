@@ -27,7 +27,7 @@ public interface RoleMapper {
 
     Page<PageSelectRoleVO> pageSelectRole(PageSelectRoleDTO pageSelectRoleDTO);
 
-    void addRolePermission(@Param("id") String id, @Param("roleId") String roleId, @Param("addPermissionIdList") List<String> addPermissionIdList);
+    void addRolePermission(@Param("roleId") String roleId, @Param("permissionIds") List<String> permissionIds, @Param("ids") List<String> ids);
 
     void deleteRolePermission(@Param("id") String id, @Param("deletePermissionIdList") List<String> deletePermissionIdList);
 

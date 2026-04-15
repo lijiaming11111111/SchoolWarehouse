@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mapper.ItemMapper">
+    <update id="updateItem" parameterType="com.school.entity.Item">
+        update item
+        <set>
+            <if test="itemName != null">
+                    item_name = #{itemName},
+            </if>
+            <if test="itemCode != null">
+                    item_code = #{itemCode},
+            </if>
+            <if test="itemCategoryId != null">
+                    item_category_id = #{itemCategoryId},
+            </if>
+            <if test="specification != null">
+                    specification = #{specification},
+            </if>
+            <if test="unit != null">
+                    unit = #{unit},
+            </if>
+            <if test="warehouseId != null">
+                    warehouse_id = #{warehouseId},
+            </if>
+            <if test="currentStock != null">
+                    current_stock = #{currentStock},
+            </if>
+            <if test="safeStock != null">
+                    safe_stock = #{safeStock},
+            </if>
+            <if test="buyTime != null">
+                    buy_time = #{buyTime},
+            </if>
+            <if test="buyPrice != null">
+                    buy_price = #{buyPrice},
+            </if>
+            <if test="useDepartment != null">
+                    use_department = #{useDepartment},
+            </if>
+            <if test="itemStatus != null">
+                    status = #{itemStatus},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <select id="pageQueryItem" resultType="com.school.vo.item.SelectItemVO">
+        SELECT *
+        FROM item
+        <where>
+            <if test="itemName != null">
+                item_name LIKE CONCAT('%', #{itemName}, '%')
+            </if>
+            <if test="itemCode != null">
+                AND item_code LIKE CONCAT('%', #{itemCode}, '%')
+            </if>
+            <if test="specification != null">
+                AND specification LIKE CONCAT('%', #{specification}, '%')
+            </if>
+            <if test="unit != null">
+                AND unit LIKE CONCAT('%', #{unit}, '%')
+            </if>
+            <if test="warehouseId != null">
+                AND warehouse_id = #{warehouseId}
+            </if>
+            <if test="currentStock != null">
+                AND current_stock = #{currentStock}
+            </if>
+            <if test="safeStock != null">
+                AND safe_stock = #{safeStock}
+            </if>
+            <if test="buyTime != null">
+                AND buy_time = #{buyTime}
+            </if>
+            <if test="buyPrice != null">
+                AND buy_price = #{buyPrice}
+            </if>
+            <if test="useDepartment != null">
+                AND use_department LIKE CONCAT('%', #{useDepartment}, '%')
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+
+</mapper>

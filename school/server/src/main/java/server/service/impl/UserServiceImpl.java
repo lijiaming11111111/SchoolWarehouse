@@ -31,6 +31,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
+import server.mapper.RoleMapper;
 import server.mapper.UserMapper;
 import server.service.FileService;
 import server.service.UserService;
@@ -47,6 +48,8 @@ import java.util.concurrent.TimeUnit;
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
+
+    private final RoleMapper roleMapper;
 
     private final RedisTemplate<String,String> redisTemplate;
 
@@ -103,11 +106,13 @@ public class UserServiceImpl implements UserService {
 
         response.addCookie(cookie);
 
+        String roleName = roleMapper.selectRoleId(user.getRoleId()).getRoleName();
         // 返回
         return UserLoginVO.builder()
                 .id(user.getId())
                 .userName(user.getUserName())
                 .userAccount(user.getUserAccount())
+                .role(roleName)
                 .token(token)
                 .build();
     }

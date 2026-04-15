@@ -17,5 +17,6 @@ public class InsertRoleDTO {
     private String roleCode;
 
     @Schema(description = "账号状态枚举类(1,正常 0,禁用)")
+    @NotBlank(message = "账号状态不能为空")
     private StatusEnum statusEnum;
 }

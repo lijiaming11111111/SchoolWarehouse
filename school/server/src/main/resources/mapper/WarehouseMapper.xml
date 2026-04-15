@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mapper.WarehouseMapper">
+
+    <update id="updateWarehouse">
+        UPDATE warehouse
+        <set>
+            <if test="warehouseName != null">
+                warehouse_name = #{warehouseName},
+            </if>
+            <if test="warehouseCode != null">
+                warehouse_code = #{warehouseCode},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="remark != null">
+                remark = #{remark}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <select id="pageQueryWarehouse" resultType="com.school.vo.warehouse.SelectWarehouseVO">
+        SELECT
+        id,
+        warehouse_name,
+        warehouse_code,
+        address,
+        user_id,
+        status,
+        remark FROM warehouse
+        <where>
+            <if test="warehouseName != null">
+                warehouse_name LIKE CONCAT('%', #{warehouseName}, '%')
+            </if>
+            <if test="warehouseCode != null">
+                AND warehouse_code LIKE CONCAT('%', #{warehouseCode}, '%')
+            </if>
+            <if test="address != null">
+                AND address LIKE CONCAT('%', #{address}, '%')
+            </if>
+            <if test="userId != null">
+                AND user_id = #{userId}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+</mapper>

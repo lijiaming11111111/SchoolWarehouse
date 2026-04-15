@@ -92,7 +92,7 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
 //                return true;
 //            }
 
-//            // 1. 从数据库查询用户权限
+//            //  从数据库查询用户权限
 //            try {
 //                List<String> userPermissions = roleMapper.selectUserPermissions(String.valueOf(userId));
 //                if (userPermissions != null && !userPermissions.isEmpty()) {

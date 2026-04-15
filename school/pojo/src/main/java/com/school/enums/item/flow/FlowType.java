@@ -1,4 +1,5 @@
-package com.school.enums.user;
+package com.school.enums.item.flow;
+
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -8,22 +9,30 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Schema(description = "用户账号状态（1.正常；0.禁用）")
-public enum StatusEnum{
+@Schema(description = "类型(1=入库 2=出库 3=借用 4=归还)")
+public enum FlowType {
+
     /**
-     * 用户账号状态-禁用
+     * 设备状态-正常
      */
-    DISABLE(0, "禁用"),
+    PUT(1, "入库"),
+
     /**
-     * 用户账号状态-正常
+     * 设备状态-借用中
      */
-    NORMAL(1, "正常");
+    STOCK(2, "出库"),
+    /**
+     * 设备状态-维修
+     */
+    BORROW(3, "借用"),
+    /**
+     * 设备状态-报废
+     */
+    RETURN(4, "归还");
 
     @JsonValue
     @EnumValue
     private final Integer code;
 
     private final String desc;
-
-
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.mapper.ItemFlowMapper">
+    <select id="pageQueryItemFlow" resultType="com.school.vo.item.flow.PageSelectItemFlowVO">
+        SELECT * FROM item_flow
+        <where>
+            <if test="itemName != null">
+                item_name LIKE CONCAT('%', #{itemName}, '%')
+            </if>
+            <if test="flowType != null">
+                AND flow_ype LIKE CONCAT('%', #{flowType}, '%')
+            </if>
+            <if test="quantity != null">
+                AND quantity LIKE CONCAT('%', #{quantity}, '%')
+            </if>
+            <if test="beforeStock != null">
+                AND before_stock LIKE CONCAT('%', #{beforeStock}, '%')
+            </if>
+            <if test="afterStock != null">
+                AND after_stock = #{afterStock}
+            </if>
+        </where>
+    </select>
+</mapper>

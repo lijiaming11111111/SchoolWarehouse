@@ -1,4 +1,4 @@
-package com.school.enums.user;
+package com.school.enums.warehouse;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -8,8 +8,8 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Schema(description = "用户账号状态（1.正常；0.禁用）")
-public enum StatusEnum{
+@Schema(description = "仓库状态（1.正常；0.禁用）")
+public enum Status {
     /**
      * 用户账号状态-禁用
      */
@@ -24,6 +24,5 @@ public enum StatusEnum{
     private final Integer code;
 
     private final String desc;
-
 
 }

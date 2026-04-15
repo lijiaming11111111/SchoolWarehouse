@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import server.mapper.RoleMapper;
 import server.service.RoleService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -87,22 +88,32 @@ public class RoleServiceImpl implements RoleService {
         if (roleMapper.selectRoleId(assignRolePermDTO.getId())==null) {
             throw new BaseException("角色不存在");
         }
-        List<String> addPermissionIdList = roleMapper.selectAddPermissionIdList(assignRolePermDTO.getId(),assignRolePermDTO.getAddPermissionIdList());
-        if (addPermissionIdList.size()!=assignRolePermDTO.getAddPermissionIdList().size()){
-            throw new BaseException("添加的权限不存在");
-        }
-        List<String> deletePermissionIdList = roleMapper.selectDeletePermissionIdList(assignRolePermDTO.getId(),assignRolePermDTO.getDeletePermissionIdList());
-        if (deletePermissionIdList.size()!=assignRolePermDTO.getDeletePermissionIdList().size()){
-            throw new BaseException("删除的权限不存在");
-        }
+        // 处理添加权限的验证
         if (assignRolePermDTO.getAddPermissionIdList()!=null && !assignRolePermDTO.getAddPermissionIdList().isEmpty()){
+            List<String> addPermissionIdList = roleMapper.selectAddPermissionIdList(assignRolePermDTO.getId(),assignRolePermDTO.getAddPermissionIdList());
+            if (addPermissionIdList.size()!=assignRolePermDTO.getAddPermissionIdList().size()){
+                throw new BaseException("添加的权限不存在");
+            }
+
             List<String> existingPermissions = roleMapper.selectExistingPermissions(assignRolePermDTO.getId(), assignRolePermDTO.getAddPermissionIdList());
             if (!existingPermissions.isEmpty()) {
-                throw new BaseException("添加重复权限");
+                throw new BaseException("有添加重复权限,权限是:" + String.join(", ", existingPermissions));
             }
-            roleMapper.addRolePermission(String.valueOf(IdWorker.getId()),assignRolePermDTO.getId(),assignRolePermDTO.getAddPermissionIdList());
+            // 为每个权限生成唯一ID
+            List<String> ids = new ArrayList<>();
+            for (int i = 0; i < assignRolePermDTO.getAddPermissionIdList().size(); i++) {
+                ids.add(String.valueOf(IdWorker.getId()));
+            }
+            roleMapper.addRolePermission(assignRolePermDTO.getId(), assignRolePermDTO.getAddPermissionIdList(), ids);
         }
+
+        // 处理删除权限的验证
         if (assignRolePermDTO.getDeletePermissionIdList()!=null && !assignRolePermDTO.getDeletePermissionIdList().isEmpty()){
+            List<String> deletePermissionIdList = roleMapper.selectDeletePermissionIdList(assignRolePermDTO.getId(),assignRolePermDTO.getDeletePermissionIdList());
+            if (deletePermissionIdList.size()!=assignRolePermDTO.getDeletePermissionIdList().size()){
+                throw new BaseException("删除的权限不存在");
+            }
+
             roleMapper.deleteRolePermission(assignRolePermDTO.getId(),assignRolePermDTO.getDeletePermissionIdList());
         }
         return null;

@@ -24,6 +24,9 @@ public class UserLoginVO {
     @Schema(description = "用户账号")
     private String userAccount;
 
+    @Schema(description = "用户角色")
+    private String role;
+
     @Schema(description = "token")
     private String token;
 
