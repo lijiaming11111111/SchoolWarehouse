@@ -15,4 +15,7 @@ public class PutItemDTO {
     @Schema(description = "入库数量")
     @NotNull(message = "入库数量不能为空")
     private Long putStock;
+
+    @Schema(description = "备注")
+    private String remark;
 }

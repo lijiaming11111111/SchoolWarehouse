@@ -1,21 +1,18 @@
 package com.school.dto.item;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import org.hibernate.sql.Update;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Data
-public class StockItemDTO {
+public class ReturnItemDTO {
     @Schema(description = "设备ID")
     @NotBlank(message = "设备ID不能为空")
     private String id;
-
-    @Schema(description = "出库数量")
-    @NotNull(message = "出库数量不能为空")
-    private Long stockNumber;
 
     @Schema(description = "备注")
     private String remark;

@@ -49,6 +49,6 @@ public class Item {
     @Schema(description = "使用部门")
     private String useDepartment;
 
-    @Schema(description = "设备状态(1=正常 2=借用中 3=维修 4=报废)")
+    @Schema(description = "设备状态(1=正常 2=禁用 3=报废)")
     private ItemStatus itemStatus;
 }

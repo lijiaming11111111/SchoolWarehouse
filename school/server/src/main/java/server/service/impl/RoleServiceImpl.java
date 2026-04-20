@@ -3,11 +3,9 @@ package server.service.impl;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.school.dto.role.AssignRolePermDTO;
-import com.school.dto.role.InsertRoleDTO;
-import com.school.dto.role.PageSelectRoleDTO;
-import com.school.dto.role.UpdateRoleDTO;
+import com.school.dto.role.*;
 import com.school.entity.Role;
+import com.school.entity.UserRole;
 import com.school.exception.BaseException;
 import com.school.result.PageResult;
 import com.school.vo.role.PageSelectRoleVO;
@@ -17,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import server.mapper.RoleMapper;
+import server.mapper.UserMapper;
 import server.service.RoleService;
 
 import java.util.ArrayList;
@@ -28,6 +27,8 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
 
     private final RoleMapper roleMapper;
+
+    private final UserMapper userMapper;
 
     @Override
     public String insertRole(InsertRoleDTO insertRoleDTO) {
@@ -122,6 +123,42 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public SelectRolePermissionVO selectRolePermissionId(String id) {
         return roleMapper.selectRolePermissionId(id);
+    }
+
+    @Override
+    public Boolean updateRoleUser(UpdateRoleUserDTO updateRoleUserDTO) {
+        if (userMapper.getUserById(Long.valueOf(updateRoleUserDTO.getId()))==null){
+            throw new BaseException("用户不存在");
+        }
+        if (roleMapper.selectRoleId(updateRoleUserDTO.getRoleId())==null) {
+            throw new BaseException("角色不存在");
+        }
+        UserRole userRole = new UserRole();
+        userRole.setId(String.valueOf(IdWorker.getId()));
+        userRole.setRoleId(updateRoleUserDTO.getRoleId());
+        userRole.setUserId(updateRoleUserDTO.getId());
+        roleMapper.updateRoleUser(userRole);
+        return true;
+    }
+
+    @Override
+    public Boolean insertRoleUser(InsertRoleUserDTO insertRoleUserDTO) {
+        if (userMapper.getUserById(Long.valueOf(insertRoleUserDTO.getId()))==null){
+            throw new BaseException("用户不存在");
+        }
+        if (roleMapper.selectRoleId(insertRoleUserDTO.getRoleId())==null) {
+            throw new BaseException("角色不存在");
+        }
+        try {
+            UserRole userRole = new UserRole();
+            userRole.setId(String.valueOf(IdWorker.getId()));
+            userRole.setRoleId(insertRoleUserDTO.getRoleId());
+            userRole.setUserId(insertRoleUserDTO.getId());
+            roleMapper.insertRoleUser(userRole);
+        }catch (Exception e){
+            throw new BaseException("当前用户已存在该角色");
+        }
+        return true;
     }
 
 }

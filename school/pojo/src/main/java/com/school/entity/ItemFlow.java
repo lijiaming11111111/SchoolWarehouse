@@ -1,10 +1,12 @@
 package com.school.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.school.enums.item.flow.FlowType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -61,7 +63,8 @@ public class ItemFlow {
      * 操作时间
      */
     @Schema(description = "操作时间")
-    private LocalDate createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
 
 
 }

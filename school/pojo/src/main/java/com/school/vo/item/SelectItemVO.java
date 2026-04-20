@@ -34,10 +34,10 @@ public class SelectItemVO {
     private String warehouseId;
 
     @Schema(description = "当前库存")
-    private String currentStock;
+    private Long currentStock;
 
     @Schema(description = "安全库存")
-    private String safeStock;
+    private Long safeStock;
 
     @Schema(description = "购买时间")
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -49,6 +49,6 @@ public class SelectItemVO {
     @Schema(description = "使用部门")
     private String useDepartment;
 
-    @Schema(description = "设备状态")
+    @Schema(description = "设备状态(1=正常 2=禁用 3=报废)")
     private ItemStatus status;
 }

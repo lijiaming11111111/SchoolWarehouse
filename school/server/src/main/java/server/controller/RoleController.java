@@ -79,4 +79,18 @@ public class RoleController {
     public Result<SelectRolePermissionVO> selectRolePermissionId(@Valid @RequestParam String id) {
         return Result.success("查询成功", roleService.selectRolePermissionId(id));
     }
+
+    @PostMapping("/updateRoleUser")
+    @Operation(summary = "修好用户的角色")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> updateRoleUser(@Valid @RequestBody UpdateRoleUserDTO updateRoleUserDTO) {
+        return Result.success("分配成功", roleService.updateRoleUser(updateRoleUserDTO));
+    }
+
+    @PostMapping("/insertRoleUser")
+    @Operation(summary = "插入用户的角色")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> insertRoleUser(@Valid @RequestBody InsertRoleUserDTO insertRoleUserDTO) {
+        return Result.success("插入成功", roleService.insertRoleUser(insertRoleUserDTO));
+    }
 }

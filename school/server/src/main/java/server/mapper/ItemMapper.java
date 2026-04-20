@@ -2,7 +2,9 @@ package server.mapper;
 
 import com.github.pagehelper.Page;
 import com.school.dto.item.PageSelectItemDTO;
+import com.school.entity.ItemBorrow;
 import com.school.entity.ItemFlow;
+import com.school.enums.item.category.ItemStatus;
 import com.school.vo.item.SelectItemVO;
 import com.school.entity.Item;
 import org.apache.ibatis.annotations.Delete;
@@ -36,4 +38,7 @@ public interface ItemMapper {
     @Insert("insert into item_flow (id, item_id, item_name, flow_type, quantity, before_stock, after_stock, remark,create_time) " +
             "values (#{id}, #{itemId}, #{itemName}, #{flowType}, #{quantity}, #{beforeStock}, #{afterStock}, #{remark}, #{createTime})")
     void insertItemFlow(ItemFlow itemFlow);
+
+    @Select("select status from item where id = #{id}")
+    ItemStatus selectItemStatus(String id);
 }

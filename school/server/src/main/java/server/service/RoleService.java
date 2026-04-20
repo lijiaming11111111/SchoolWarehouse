@@ -1,9 +1,6 @@
 package server.service;
 
-import com.school.dto.role.AssignRolePermDTO;
-import com.school.dto.role.InsertRoleDTO;
-import com.school.dto.role.PageSelectRoleDTO;
-import com.school.dto.role.UpdateRoleDTO;
+import com.school.dto.role.*;
 import com.school.entity.Role;
 import com.school.result.PageResult;
 import com.school.vo.role.PageSelectRoleVO;
@@ -26,4 +23,8 @@ public interface RoleService {
     String assignRolePerm(AssignRolePermDTO assignRolePermDTO);
 
     SelectRolePermissionVO selectRolePermissionId(String id);
+
+    Boolean updateRoleUser(UpdateRoleUserDTO updateRoleUserDTO);
+
+    Boolean insertRoleUser(InsertRoleUserDTO insertRoleUserDTO);
 }

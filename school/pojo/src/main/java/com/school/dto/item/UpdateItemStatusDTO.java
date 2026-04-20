@@ -9,6 +9,6 @@ public class UpdateItemStatusDTO {
     @Schema(description = "设备信息ID")
     private String id;
 
-    @Schema(description = "设备状态")
+    @Schema(description = "设备状态(1=正常 2=禁用 3=报废)")
     private ItemStatus status;
 }

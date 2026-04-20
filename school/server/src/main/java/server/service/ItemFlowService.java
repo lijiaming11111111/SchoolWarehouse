@@ -7,4 +7,6 @@ import com.school.vo.item.flow.PageSelectItemFlowVO;
 public interface ItemFlowService {
 
     PageResult<PageSelectItemFlowVO> pageSelectItemCategory(PageSelectItemFlowDTO pageSelectItemFlowDTO);
+
+    Boolean regularCheckItemFlow();
 }

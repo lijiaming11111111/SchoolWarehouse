@@ -17,6 +17,8 @@ import com.school.exception.user.UserException;
 import com.school.result.PageResult;
 import com.school.util.JwtUtil;
 import com.school.util.SaltUtil;
+import com.school.vo.item.SelectItemVO;
+import com.school.vo.role.SelectRoleIdVO;
 import com.school.vo.user.CurrentUserDataVO;
 import com.school.vo.user.PageQueryUserVO;
 import com.school.vo.user.UserLoginVO;
@@ -106,7 +108,12 @@ public class UserServiceImpl implements UserService {
 
         response.addCookie(cookie);
 
-        String roleName = roleMapper.selectRoleId(user.getRoleId()).getRoleName();
+//        String roleName = roleMapper.selectRoleId(user.getRoleId()).getRoleName();
+        String roleName = null;
+        SelectRoleIdVO role = roleMapper.selectRoleId(user.getRoleId());
+        if (role != null) {
+            roleName = role.getRoleName();
+        }
         // 返回
         return UserLoginVO.builder()
                 .id(user.getId())

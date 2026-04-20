@@ -3,6 +3,7 @@ package server.mapper;
 import com.github.pagehelper.Page;
 import com.school.dto.role.PageSelectRoleDTO;
 import com.school.entity.Role;
+import com.school.entity.UserRole;
 import com.school.vo.role.PageSelectRoleVO;
 import com.school.vo.role.SelectRoleIdVO;
 import com.school.vo.role.SelectRolePermissionVO;
@@ -43,6 +44,12 @@ public interface RoleMapper {
             "JOIN role_permission rp ON p.id = rp.permission_id " +
             "WHERE rp.role_id = #{roleId}")
     List<String> selectRolePermissions(String roleId);
+
+    @Insert("INSERT INTO user_role(id, user_id, role_id) " +
+            "VALUES (#{id}, #{userId}, #{roleId})")
+    void insertRoleUser(UserRole userRole);
+
+    void updateRoleUser(UserRole userRole);
 //    @Select("SELECT p.code FROM permission p " +
 //            "JOIN role_permission rp ON p.id = rp.permission_id " +
 //            "JOIN user_role ur ON rp.role_id = ur.role_id " +

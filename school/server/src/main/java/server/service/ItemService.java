@@ -20,4 +20,8 @@ public interface ItemService {
     Boolean putItem(PutItemDTO putItemDTO);
 
     Boolean stockItem(StockItemDTO stockItemDTO);
+
+    Boolean borrowItem(BorrowItemDTO borrowItemDTO);
+
+    Boolean returnItem(ReturnItemDTO returnItemDTO);
 }

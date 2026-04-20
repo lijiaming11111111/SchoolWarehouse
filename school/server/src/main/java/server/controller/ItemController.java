@@ -80,4 +80,18 @@ public class ItemController {
     public Result<Boolean> stockItem(@Validated @RequestBody StockItemDTO stockItemDTO) {
         return Result.success("出库设备成功", itemService.stockItem(stockItemDTO));
     }
+
+    @PostMapping("/borrowItem")
+    @Operation(summary = "借用设备")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> borrowItem(@Validated @RequestBody BorrowItemDTO borrowItemDTO) {
+        return Result.success("借用设备成功", itemService.borrowItem(borrowItemDTO));
+    }
+
+    @PostMapping("/returnItem")
+    @Operation(summary = "归还设备")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> returnItem(@Validated @RequestBody ReturnItemDTO returnItemDTO) {
+        return Result.success("归还设备成功", itemService.returnItem(returnItemDTO));
+    }
 }

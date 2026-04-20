@@ -30,4 +30,11 @@ public class ItemFlowController {
     public Result<PageResult<PageSelectItemFlowVO>> pageSelectItemFlow(@Validated @RequestBody PageSelectItemFlowDTO pageSelectItemFlowDTO) {
         return Result.success("查询成功",itemFlowService.pageSelectItemCategory(pageSelectItemFlowDTO));
     }
+
+    @PostMapping("/regularCheckItemFlow")
+    @Operation(summary = "定时检查是否有逾期借用记录")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> regularCheckItemFlow() {
+        return Result.success("检查成功", itemFlowService.regularCheckItemFlow());
+    }
 }
