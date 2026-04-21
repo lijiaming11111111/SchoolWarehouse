@@ -257,32 +257,40 @@ public class UserServiceImpl implements UserService {
         if (user == null || user.getId() == null ){
             throw new UserException("用户不存在");
         }
-        // 验证手机号是否已存在（排除当前用户）
-        if (!updateUserDTO.getTelephone().equals(user.getTelephone())) {
-            Integer phoneCount = userMapper.selectUserByTelephone(updateUserDTO.getTelephone());
-            if (phoneCount != null && phoneCount > 0) {
-                throw new BaseException("手机号已存在");
+        if (updateUserDTO.getTelephone() != null){
+            // 验证手机号是否已存在（排除当前用户）
+            if (!updateUserDTO.getTelephone().equals(user.getTelephone())) {
+                Integer phoneCount = userMapper.selectUserByTelephone(updateUserDTO.getTelephone());
+                if (phoneCount != null && phoneCount > 0) {
+                    throw new BaseException("手机号已存在");
+                }
             }
         }
-        // 验证用户名是否已存在（排除当前用户）
-        if (!updateUserDTO.getUserName().equals(user.getUserName())) {
-            Integer userNameCount = userMapper.selectUserByUserName(updateUserDTO.getUserName());
-            if (userNameCount != null && userNameCount > 0) {
-                throw new BaseException("用户名已存在");
+        if (updateUserDTO.getUserName() != null){
+            // 验证用户名是否已存在（排除当前用户）
+            if (!updateUserDTO.getUserName().equals(user.getUserName())) {
+                Integer userNameCount = userMapper.selectUserByUserName(updateUserDTO.getUserName());
+                if (userNameCount != null && userNameCount > 0) {
+                    throw new BaseException("用户名已存在");
+                }
             }
         }
-        // 验证账号是否已存在（排除当前用户）
-        if (!updateUserDTO.getUserAccount().equals(user.getUserAccount())) {
-            Integer userAccountCount = userMapper.selectUserByUserAccount(updateUserDTO.getUserAccount());
-            if (userAccountCount != null && userAccountCount > 0) {
-                throw new BaseException("账号已存在");
+        if (updateUserDTO.getUserAccount() != null){
+            // 验证账号是否已存在（排除当前用户）
+            if (!updateUserDTO.getUserAccount().equals(user.getUserAccount())) {
+                Integer userAccountCount = userMapper.selectUserByUserAccount(updateUserDTO.getUserAccount());
+                if (userAccountCount != null && userAccountCount > 0) {
+                    throw new BaseException("账号已存在");
+                }
             }
         }
-        // 验证邮箱是否已存在（排除当前用户）
-        if (!updateUserDTO.getEmail().equals(user.getEmail())) {
-            Integer emailCount = userMapper.selectUserByEmail(updateUserDTO.getEmail());
-            if (emailCount != null && emailCount > 0) {
-                throw new BaseException("邮箱已存在");
+        if (updateUserDTO.getEmail() != null){
+            // 验证邮箱是否已存在（排除当前用户）
+            if (!updateUserDTO.getEmail().equals(user.getEmail())) {
+                Integer emailCount = userMapper.selectUserByEmail(updateUserDTO.getEmail());
+                if (emailCount != null && emailCount > 0) {
+                    throw new BaseException("邮箱已存在");
+                }
             }
         }
         User updateUser = new User();
