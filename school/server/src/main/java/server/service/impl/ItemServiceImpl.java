@@ -17,9 +17,7 @@ import com.school.vo.item.SelectItemVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import server.mapper.ItemBorrowMapper;
-import server.mapper.ItemMapper;
-import server.mapper.UserMapper;
+import server.mapper.*;
 import server.service.ItemService;
 
 import java.time.LocalDate;
@@ -32,12 +30,22 @@ public class ItemServiceImpl implements ItemService {
 
     private final ItemMapper itemMapper;
 
+    private final ItemCategoryMapper itemCategoryMapper;
+
+    private final WarehouseMapper warehouseMapper;
+
     private final UserMapper userMapper;
 
     private final ItemBorrowMapper itemBorrowMapper;
 
     @Override
     public String insertItem(InsertItemDTO insertItemDTO) {
+        if (itemCategoryMapper.selectItemCategoryId(insertItemDTO.getItemCategoryId()) == 0) {
+            throw new BaseException("分类ID不存在");
+        }
+        if (warehouseMapper.selectWarehouseById(insertItemDTO.getWarehouseId()) == null) {
+            throw new BaseException("仓库ID不存在");
+        }
         Item item = new Item();
         item.setId(String.valueOf(IdWorker.getId()));
         item.setItemName(insertItemDTO.getItemName());

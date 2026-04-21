@@ -28,4 +28,7 @@ public interface ItemCategoryMapper {
     Page<PageSelectItemCategoryVO> pageQueryItemCategory(PageSelectItemCategoryDTO pageSelectItemCategoryDTO);
 
     List<SelectItemCategoryTreeVO> selectItemCategoryTree();
+
+    @Select("select count(*) from item_category where id = #{itemCategoryId}")
+    int selectItemCategoryId(String itemCategoryId);
 }
