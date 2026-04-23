@@ -149,15 +149,14 @@ public class RoleServiceImpl implements RoleService {
         if (roleMapper.selectRoleId(insertRoleUserDTO.getRoleId())==null) {
             throw new BaseException("角色不存在");
         }
-        try {
-            UserRole userRole = new UserRole();
-            userRole.setId(String.valueOf(IdWorker.getId()));
-            userRole.setRoleId(insertRoleUserDTO.getRoleId());
-            userRole.setUserId(insertRoleUserDTO.getId());
-            roleMapper.insertRoleUser(userRole);
-        }catch (Exception e){
+        if (roleMapper.selectRoleUser(insertRoleUserDTO.getId())!=null){
             throw new BaseException("当前用户已存在该角色");
         }
+        UserRole userRole = new UserRole();
+        userRole.setId(String.valueOf(IdWorker.getId()));
+        userRole.setRoleId(insertRoleUserDTO.getRoleId());
+        userRole.setUserId(insertRoleUserDTO.getId());
+        roleMapper.insertRoleUser(userRole);
         return true;
     }
 

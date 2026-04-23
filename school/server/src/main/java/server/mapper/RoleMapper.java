@@ -50,6 +50,10 @@ public interface RoleMapper {
     void insertRoleUser(UserRole userRole);
 
     void updateRoleUser(UserRole userRole);
+
+    @Select("SELECT * FROM user_role WHERE user_id = #{id}")
+    UserRole selectRoleUser(String id);
+
 //    @Select("SELECT p.code FROM permission p " +
 //            "JOIN role_permission rp ON p.id = rp.permission_id " +
 //            "JOIN user_role ur ON rp.role_id = ur.role_id " +
