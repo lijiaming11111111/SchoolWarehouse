@@ -46,8 +46,8 @@ public class SelectItemVO {
     @Schema(description = "购置金额")
     private BigDecimal buyPrice;
 
-    @Schema(description = "使用部门")
-    private String useDepartment;
+    @Schema(description = "部门ID")
+    private String departmentId;
 
     @Schema(description = "设备状态(1=正常 2=禁用 3=报废)")
     private ItemStatus status;

@@ -46,7 +46,7 @@ public class UpdateItemDTO {
     @Schema(description = "购置金额")
     private BigDecimal buyPrice;
 
-    @Schema(description = "使用部门")
-    private String useDepartment;
+    @Schema(description = "部门ID")
+    private String departmentId;
 
 }

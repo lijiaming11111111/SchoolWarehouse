@@ -38,13 +38,18 @@ public class ItemServiceImpl implements ItemService {
 
     private final ItemBorrowMapper itemBorrowMapper;
 
+    private final DepartmentMapper departmentMapper;
+
     @Override
     public String insertItem(InsertItemDTO insertItemDTO) {
         if (itemCategoryMapper.selectItemCategoryId(insertItemDTO.getItemCategoryId()) == 0) {
             throw new BaseException("分类ID不存在");
         }
-        if (warehouseMapper.selectWarehouseById(insertItemDTO.getWarehouseId()) == null) {
-            throw new BaseException("仓库ID不存在");
+//        if (warehouseMapper.selectWarehouseById(insertItemDTO.getWarehouseId()) == null) {
+//            throw new BaseException("仓库ID不存在");
+//        }
+        if (departmentMapper.selectCountDepartment(insertItemDTO.getDepartmentId()) == 0) {
+            throw new BaseException("部门ID不存在");
         }
         Item item = new Item();
         item.setId(String.valueOf(IdWorker.getId()));
@@ -58,7 +63,7 @@ public class ItemServiceImpl implements ItemService {
         item.setSafeStock(insertItemDTO.getSafeStock());
         item.setBuyTime(insertItemDTO.getBuyTime());
         item.setBuyPrice(insertItemDTO.getBuyPrice());
-        item.setUseDepartment(insertItemDTO.getUseDepartment());
+        item.setDepartmentId(insertItemDTO.getDepartmentId());
         item.setItemStatus(ItemStatus.NORMAL);
         itemMapper.insertItem(item);
         return item.getId();
@@ -82,7 +87,7 @@ public class ItemServiceImpl implements ItemService {
         item.setSafeStock(updateItemDTO.getSafeStock());
         item.setBuyTime(updateItemDTO.getBuyTime());
         item.setBuyPrice(updateItemDTO.getBuyPrice());
-        item.setUseDepartment(updateItemDTO.getUseDepartment());
+        item.setDepartmentId(updateItemDTO.getDepartmentId());
         return itemMapper.updateItem(item);
     }
 
@@ -119,8 +124,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public PageResult<SelectItemVO> pageSelectItem(PageSelectItemDTO pageSelectItemDTO) {
+        String departmentId = userMapper.getUserById(BaseContext.getCurrentUserId()).getDepartmentId();
         PageHelper.startPage(pageSelectItemDTO.getPage(), pageSelectItemDTO.getPageSize());
-        Page<SelectItemVO> page = itemMapper.pageQueryItem(pageSelectItemDTO);
+        Page<SelectItemVO> page = itemMapper.pageQueryItem(pageSelectItemDTO,departmentId);
         return new PageResult<>( page.getTotal(), page.getResult());
     }
 

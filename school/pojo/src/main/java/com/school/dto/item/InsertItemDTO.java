@@ -52,8 +52,8 @@ public class InsertItemDTO {
     @NotNull(message = "购置金额不能为空")
     private BigDecimal buyPrice;
 
-    @Schema(description = "使用部门")
-    @NotBlank(message = "使用部门不能为空")
-    private String useDepartment;
+    @Schema(description = "部门ID")
+    @NotBlank(message = "部门ID不能为空")
+    private String departmentId;
 
 }

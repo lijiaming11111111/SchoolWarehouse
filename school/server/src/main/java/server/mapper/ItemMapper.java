@@ -9,13 +9,14 @@ import com.school.vo.item.SelectItemVO;
 import com.school.entity.Item;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 public interface ItemMapper {
     @Insert("insert into item (id, item_name, item_code, item_category_id, specification, unit, warehouse_id, " +
-            "current_stock, safe_stock, buy_time, buy_price, use_department, status) " +
+            "current_stock, safe_stock, buy_time, buy_price, department_id, status) " +
             "values (#{id}, #{itemName}, #{itemCode}, #{itemCategoryId}, #{specification}, #{unit}, #{warehouseId}," +
-            " #{currentStock}, #{safeStock}, #{buyTime}, #{buyPrice}, #{useDepartment}, #{itemStatus})")
+            " #{currentStock}, #{safeStock}, #{buyTime}, #{buyPrice}, #{departmentId}, #{itemStatus})")
     void insertItem(Item item);
 
     Boolean updateItem(Item item);
@@ -29,7 +30,7 @@ public interface ItemMapper {
     @Select("select count(*) from item where id = #{id}")
     Long selectCountById(String id);
 
-    Page<SelectItemVO> pageQueryItem(PageSelectItemDTO pageSelectItemDTO);
+    Page<SelectItemVO> pageQueryItem(@Param("pageSelectItemDTO") PageSelectItemDTO pageSelectItemDTO, @Param("departmentId") String departmentId);
 
 
     @Select("select current_stock from item where id = #{id}")

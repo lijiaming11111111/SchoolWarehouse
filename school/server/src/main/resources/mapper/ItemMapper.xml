@@ -36,8 +36,8 @@
             <if test="buyPrice != null">
                     buy_price = #{buyPrice},
             </if>
-            <if test="useDepartment != null">
-                    use_department = #{useDepartment},
+            <if test="departmentId != null">
+                    department_id = #{departmentId},
             </if>
             <if test="itemStatus != null">
                     status = #{itemStatus},
@@ -45,42 +45,64 @@
         </set>
         where id = #{id}
     </update>
-    <select id="pageQueryItem" resultType="com.school.vo.item.SelectItemVO">
-        SELECT *
+
+    <resultMap id="itemResultMap" type="com.school.vo.item.SelectItemVO">
+        <result property="id" column="id"/>
+        <result property="itemName" column="item_name"/>
+        <result property="itemCode" column="item_code"/>
+        <result property="itemCategoryId" column="item_category_id"/>
+        <result property="specification" column="specification"/>
+        <result property="unit" column="unit"/>
+        <result property="warehouseId" column="warehouse_id"/>
+        <result property="currentStock" column="current_stock"/>
+        <result property="safeStock" column="safe_stock"/>
+        <result property="buyTime" column="buy_time"/>
+        <result property="buyPrice" column="buy_price"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <select id="pageQueryItem" resultMap="itemResultMap">
+        SELECT id, item_name, item_code, item_category_id,
+        specification, unit, warehouse_id, current_stock,
+        safe_stock, buy_time, buy_price, department_id, status
         FROM item
         <where>
-            <if test="itemName != null">
-                item_name LIKE CONCAT('%', #{itemName}, '%')
+            <if test="pageSelectItemDTO.itemName != null ">
+                item_name LIKE CONCAT('%', #{pageSelectItemDTO.itemName}, '%')
             </if>
-            <if test="itemCode != null">
-                AND item_code LIKE CONCAT('%', #{itemCode}, '%')
+            <if test="pageSelectItemDTO.itemCode != null ">
+                AND item_code LIKE CONCAT('%', #{pageSelectItemDTO.itemCode}, '%')
             </if>
-            <if test="specification != null">
-                AND specification LIKE CONCAT('%', #{specification}, '%')
+            <if test="pageSelectItemDTO.itemCategoryId != null ">
+                AND item_category_id = #{pageSelectItemDTO.itemCategoryId}
             </if>
-            <if test="unit != null">
-                AND unit LIKE CONCAT('%', #{unit}, '%')
+            <if test="pageSelectItemDTO.specification != null ">
+                AND specification LIKE CONCAT('%', #{pageSelectItemDTO.specification}, '%')
             </if>
-            <if test="warehouseId != null">
-                AND warehouse_id = #{warehouseId}
+            <if test="pageSelectItemDTO.unit != null ">
+                AND unit LIKE CONCAT('%', #{pageSelectItemDTO.unit}, '%')
             </if>
-            <if test="currentStock != null">
-                AND current_stock = #{currentStock}
+            <if test="pageSelectItemDTO.warehouseId != null ">
+                AND warehouse_id = #{pageSelectItemDTO.warehouseId}
             </if>
-            <if test="safeStock != null">
-                AND safe_stock = #{safeStock}
+            <if test="pageSelectItemDTO.currentStock != null ">
+                AND current_stock = #{pageSelectItemDTO.currentStock}
             </if>
-            <if test="buyTime != null">
-                AND buy_time = #{buyTime}
+            <if test="pageSelectItemDTO.safeStock != null ">
+                AND safe_stock = #{pageSelectItemDTO.safeStock}
             </if>
-            <if test="buyPrice != null">
-                AND buy_price = #{buyPrice}
+            <if test="pageSelectItemDTO.buyTime != null">
+                AND buy_time = #{pageSelectItemDTO.buyTime}
             </if>
-            <if test="useDepartment != null">
-                AND use_department LIKE CONCAT('%', #{useDepartment}, '%')
+            <if test="pageSelectItemDTO.buyPrice != null">
+                AND buy_price = #{pageSelectItemDTO.buyPrice}
             </if>
-            <if test="status != null">
-                AND status = #{status}
+            <if test="pageSelectItemDTO.status != null">
+                AND status = #{pageSelectItemDTO.status}
+            </if>
+            <if test="departmentId != null ">
+                AND department_id = #{departmentId}
             </if>
         </where>
     </select>
