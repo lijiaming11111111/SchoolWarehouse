@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class InsertRoleDTO {
@@ -17,6 +18,6 @@ public class InsertRoleDTO {
     private String roleCode;
 
     @Schema(description = "账号状态枚举类(1,正常 0,禁用)")
-    @NotBlank(message = "账号状态不能为空")
+    @NotNull(message = "账号状态不能为空")
     private StatusEnum statusEnum;
 }
