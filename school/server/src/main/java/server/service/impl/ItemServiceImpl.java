@@ -124,7 +124,11 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public PageResult<SelectItemVO> pageSelectItem(PageSelectItemDTO pageSelectItemDTO) {
-        String departmentId = userMapper.getUserById(BaseContext.getCurrentUserId()).getDepartmentId();
+        String roleId = BaseContext.getCurrentUserRoleRoleId();
+        String departmentId = null;
+        if (!"1".equals(roleId)) {
+            departmentId = userMapper.getUserById(BaseContext.getCurrentUserId()).getDepartmentId();
+        }
         PageHelper.startPage(pageSelectItemDTO.getPage(), pageSelectItemDTO.getPageSize());
         Page<SelectItemVO> page = itemMapper.pageQueryItem(pageSelectItemDTO,departmentId);
         return new PageResult<>( page.getTotal(), page.getResult());

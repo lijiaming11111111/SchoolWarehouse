@@ -101,7 +101,7 @@
             <if test="pageSelectItemDTO.status != null">
                 AND status = #{pageSelectItemDTO.status}
             </if>
-            <if test="departmentId != null ">
+            <if test="departmentId != null">
                 AND department_id = #{departmentId}
             </if>
         </where>
