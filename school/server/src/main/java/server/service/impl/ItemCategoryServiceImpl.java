@@ -7,15 +7,18 @@ import com.school.dto.item.category.InsertItemCategoryDTO;
 import com.school.dto.item.category.PageSelectItemCategoryDTO;
 import com.school.dto.item.category.SelectItemCategoryTreeDTO;
 import com.school.dto.item.category.UpdateItemCategoryDTO;
+import com.school.entity.Item;
 import com.school.entity.ItemCategory;
 import com.school.exception.BaseException;
 import com.school.result.PageResult;
+import com.school.vo.item.SelectItemVO;
 import com.school.vo.item.category.PageSelectItemCategoryVO;
 import com.school.vo.item.category.SelectItemCategoryTreeVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import server.mapper.ItemCategoryMapper;
+import server.mapper.ItemMapper;
 import server.service.ItemCategoryService;
 
 import java.util.ArrayList;
@@ -29,6 +32,8 @@ import java.util.Map;
 public class ItemCategoryServiceImpl implements ItemCategoryService {
 
     private final ItemCategoryMapper itemCategoryMapper;
+
+    private final ItemMapper itemMapper;
 
     @Override
     public String insertItemCategory(InsertItemCategoryDTO insertItemCategoryDTO) {
@@ -56,8 +61,12 @@ public class ItemCategoryServiceImpl implements ItemCategoryService {
     @Override
     public Boolean deleteItemCategory(String id) {
         ItemCategory itemCategory = itemCategoryMapper.selectItemCategoryById(id);
+        SelectItemVO item = itemMapper.selectItem(id);
         if (itemCategory == null) {
             throw new BaseException("设备分类不存在");
+        }
+        if (item != null) {
+            throw new BaseException("设备分类下有设备，不能删除");
         }
         itemCategoryMapper.deleteItemCategoryById(id);
         return true;
