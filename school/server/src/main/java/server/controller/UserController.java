@@ -95,4 +95,17 @@ public class UserController {
         return Result.success("重置密码成功", userService.resetPassword(resetPasswordDTO));
     }
 
+    @PostMapping("/register")
+    @Operation(summary = "注册")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> register(@Valid @RequestBody RegisterDTO registerDTO)  {
+        return Result.success("注册成功", userService.register(registerDTO));
+    }
+
+    @PostMapping("/sendRegisterEmail")
+    @Operation(summary = "发送注册邮件")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> sendRegisterEmail(@Valid @RequestParam String email) {
+        return Result.success("发送成功", userService.sendRegisterEmail(email));
+    }
 }

@@ -14,7 +14,20 @@ spring:
     port: 11227
     password: "oLyyEhkXCydACkBn5pRQuNG5CIFueVSZ"
     database: 0
-
+  mail:
+    host: smtp.qq.com
+    username: 196254331@qq.com
+    password: bpdtjyehgbbfbjaj  # QQ?????????????
+    port: 587
+    default-encoding: UTF-8
+    protocol: smtp # SMTP邮件协议
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 minio:
   endpoint: "http://47.118.31.5:9000"
   accessKey: "minioadmin"

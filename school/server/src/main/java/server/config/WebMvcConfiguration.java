@@ -34,6 +34,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**")
                 .excludePathPatterns(
                         "/user/login",
+                        "/user/register",
+                        "/user/sendRegisterEmail",
                         "/**/enums",
                         "/doc.html",
                         "/webjars/**",

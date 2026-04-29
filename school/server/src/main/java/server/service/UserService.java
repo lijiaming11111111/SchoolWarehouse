@@ -47,4 +47,8 @@ public interface UserService {
     Boolean updateUser(UpdateUserDTO updateUserDto, MultipartFile face);
 
     Boolean resetPassword(ResetPasswordDTO resetPasswordDTO);
+
+    Boolean register(RegisterDTO registerDTO);
+
+    Boolean sendRegisterEmail(String email);
 }

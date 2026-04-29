@@ -11,6 +11,7 @@ import com.school.context.BaseContext;
 import com.school.dto.user.*;
 import com.school.entity.User;
 import com.school.enums.redis.RedisPrefix;
+import com.school.enums.user.Gender;
 import com.school.enums.user.StatusEnum;
 import com.school.exception.BaseException;
 import com.school.exception.user.UserException;
@@ -29,6 +30,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
@@ -38,6 +41,7 @@ import server.mapper.UserMapper;
 import server.service.FileService;
 import server.service.UserService;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,6 +65,13 @@ public class UserServiceImpl implements UserService {
 
     @Value("${jwt.secretKey}")
     private String jwtSecretKey;
+
+    @Resource
+    private JavaMailSender mailSender;
+
+    @Value("${spring.mail.username}")
+    private String fromEmail;
+
 
     @Override
     public UserLoginVO login(UserLoginDTO dto, HttpServletResponse response) throws JsonProcessingException {
@@ -334,4 +345,45 @@ public class UserServiceImpl implements UserService {
 
         return true;
     }
+
+    @Override
+    public Boolean register(RegisterDTO registerDTO) {
+        String key = "email:code:" + registerDTO.getEmail();
+        String cacheCode = redisTemplate.opsForValue().get(key);
+        if (cacheCode == null || !cacheCode.equals(registerDTO.getCode())) {
+            throw new BaseException("验证码错误或已过期");
+        }
+        if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())) {
+            throw new BaseException("两次输入密码不一致");
+        }
+        redisTemplate.delete(key);
+        User user = new User();
+        user.setId(String.valueOf(IdWorker.getId()));
+        user.setGender(Gender.MAN);
+        user.setPassword(DigestUtils.md5DigestAsHex(registerDTO.getPassword().getBytes()));
+        user.setEmail(registerDTO.getEmail());
+        user.setStatusEnum(StatusEnum.NORMAL);
+        if(userMapper.insertUser(user) != 1){
+            throw new BaseException("新增用户失败");
+        }
+        return true;
+    }
+
+    @Override
+    public Boolean sendRegisterEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            throw new BaseException("邮箱不能为空");
+        }
+        String code = String.valueOf((int)((Math.random()*9+1)*100000));
+        String key = "email:code:" + email;
+        redisTemplate.opsForValue().set(key, code, 5, TimeUnit.MINUTES);
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(fromEmail);
+        message.setTo(email);
+        message.setSubject("设备管理系统注册验证码");
+        message.setText("您的注册验证码是：" + code + "，5分钟内有效");
+        mailSender.send(message);
+        return true;
+    }
+
 }
