@@ -1,6 +1,6 @@
 package com.school.vo.role;
 
-import com.school.enums.user.StatusEnum;
+import com.school.enums.role.StatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -15,6 +15,6 @@ public class SelectRoleIdVO {
     @Schema(description = "角色编码")
     private String roleCode;
 
-    @Schema(description = "账号状态枚举类(1,正常 0,禁用)")
+    @Schema(description = "角色状态枚举类(1,正常 0,禁用)")
     private StatusEnum statusEnum;
 }

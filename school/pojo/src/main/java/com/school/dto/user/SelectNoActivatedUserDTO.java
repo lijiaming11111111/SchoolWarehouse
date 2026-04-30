@@ -1,23 +1,17 @@
-package com.school.dto.role;
+package com.school.dto.user;
 
-import com.school.enums.role.StatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
 @Data
-public class PageSelectRoleDTO {
-    @Schema(description = "角色名称")
-    private String roleName;
-
-    @Schema(description = "角色编码")
-    private String roleCode;
-
-    @Schema(description = "角色状态枚举类(1,正常 0,禁用)")
-    private StatusEnum statusEnum;
+public class SelectNoActivatedUserDTO {
+    @Schema(description = "邮箱")
+    @Email(message = "邮箱格式不正确")
+    private String email;
 
     @Schema(description = "页码", defaultValue = "1",required = true)
     @NotNull(message = "页码为空")

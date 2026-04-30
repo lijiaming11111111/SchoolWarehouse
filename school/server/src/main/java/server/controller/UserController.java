@@ -6,6 +6,7 @@ import com.school.result.PageResult;
 import com.school.result.Result;
 import com.school.vo.user.CurrentUserDataVO;
 import com.school.vo.user.PageQueryUserVO;
+import com.school.vo.user.SelectNoActivatedUserVO;
 import com.school.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
@@ -107,5 +108,21 @@ public class UserController {
     @ApiOperationSupport(author = "厉佳铭")
     public Result<Boolean> sendRegisterEmail(@Valid @RequestParam String email) {
         return Result.success("发送成功", userService.sendRegisterEmail(email));
+    }
+
+    @PostMapping("/activate")
+    @Operation(summary = "激活用户")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<Boolean> activate(@Valid @RequestParam String userId) {
+        return Result.success("激活成功", userService.activate(userId));
+    }
+
+    @PostMapping("/selectNoActivatedUser")
+    @Operation(summary = "查询未激活用户")
+    @ApiOperationSupport(author = "厉佳铭")
+    public Result<PageResult<SelectNoActivatedUserVO>> selectNoActivatedUser(
+            @Valid @RequestBody SelectNoActivatedUserDTO selectNoActivatedUserDTO) {
+        PageResult<SelectNoActivatedUserVO> pageResult = userService.selectNoActivatedUser(selectNoActivatedUserDTO);
+        return Result.success("查询成功", pageResult);
     }
 }

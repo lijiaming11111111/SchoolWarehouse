@@ -22,6 +22,7 @@ import com.school.vo.item.SelectItemVO;
 import com.school.vo.role.SelectRoleIdVO;
 import com.school.vo.user.CurrentUserDataVO;
 import com.school.vo.user.PageQueryUserVO;
+import com.school.vo.user.SelectNoActivatedUserVO;
 import com.school.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -79,6 +80,14 @@ public class UserServiceImpl implements UserService {
         UserLoginVerifyData user = userMapper.getUserLoginDataByAccount(dto.getAccount());
         if (user == null) {
             throw new UserException("账号不存在");
+        }
+
+        User userById = userMapper.getUserById(user.getId());
+        if (userById.getStatusEnum() == StatusEnum.DISABLE) {
+            throw new UserException("账号已禁用");
+        }
+        if (userById.getStatusEnum() == StatusEnum.UNACTIVATED) {
+            throw new UserException("账号未激活");
         }
 
         String encryptedPassword = DigestUtils.md5DigestAsHex(dto.getPassword().getBytes());
@@ -210,7 +219,7 @@ public class UserServiceImpl implements UserService {
         long userId = IdWorker.getId();
         user.setId(String.valueOf(userId));
         user.setUserName(user.getUserName());
-        user.setStatusEnum(StatusEnum.NORMAL);
+        user.setStatusEnum(StatusEnum.UNACTIVATED);
         // 设定默认排序为 0
         if(user.getSort() == null){
             user.setSort(0);
@@ -307,6 +316,7 @@ public class UserServiceImpl implements UserService {
         User updateUser = new User();
         BeanUtils.copyProperties(updateUserDTO, updateUser);
         updateUser.setId(updateUserDTO.getId());
+        updateUser.setStatusEnum(updateUserDTO.getStatusEnum());
         // 修改头像
         if(face!= null){
             updateUser.setImageAddress(fileService.upload(face));
@@ -362,7 +372,7 @@ public class UserServiceImpl implements UserService {
         user.setGender(Gender.MAN);
         user.setPassword(DigestUtils.md5DigestAsHex(registerDTO.getPassword().getBytes()));
         user.setEmail(registerDTO.getEmail());
-        user.setStatusEnum(StatusEnum.NORMAL);
+        user.setStatusEnum(StatusEnum.UNACTIVATED);
         if(userMapper.insertUser(user) != 1){
             throw new BaseException("新增用户失败");
         }
@@ -384,6 +394,27 @@ public class UserServiceImpl implements UserService {
         message.setText("您的注册验证码是：" + code + "，5分钟内有效");
         mailSender.send(message);
         return true;
+    }
+
+    @Override
+    public Boolean activate(String userId) {
+        User user = userMapper.getUserStatus(userId);
+        if(user == null || user.getId() == null ){
+            throw new UserException("用户不存在");
+        }
+        if(user.getStatusEnum()!=StatusEnum.UNACTIVATED){
+            throw new UserException("用户已经激活，无需再次激活");
+        }
+        user.setStatusEnum(StatusEnum.NORMAL);
+        userMapper.updateUser(user);
+        return true;
+    }
+
+    @Override
+    public PageResult<SelectNoActivatedUserVO> selectNoActivatedUser(SelectNoActivatedUserDTO selectNoActivatedUserDTO) {
+        PageHelper.startPage(selectNoActivatedUserDTO.getPage(), selectNoActivatedUserDTO.getPageSize());
+        Page<SelectNoActivatedUserVO> page = userMapper.selectNoActivatedUser(selectNoActivatedUserDTO.getEmail());
+        return new PageResult<>( page.getTotal(), page.getResult());
     }
 
 }

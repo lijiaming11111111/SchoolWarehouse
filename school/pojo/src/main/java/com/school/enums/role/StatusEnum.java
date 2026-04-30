@@ -1,4 +1,4 @@
-package com.school.enums.user;
+package com.school.enums.role;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -8,20 +8,16 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Schema(description = "用户账号状态（0.禁用；1.正常；2.未激活）")
+@Schema(description = "角色状态枚举类(1,正常 0,禁用)")
 public enum StatusEnum{
     /**
-     * 用户账号状态-禁用
+     * 角色状态-禁用
      */
     DISABLE(0, "禁用"),
     /**
-     * 用户账号状态-正常
+     * 角色状态-正常
      */
-    NORMAL(1, "正常"),
-    /**
-     * 用户账号状态-未激活
-     */
-    UNACTIVATED(2, "未激活");
+    NORMAL(1, "正常");
 
     @JsonValue
     @EnumValue

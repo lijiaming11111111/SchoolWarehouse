@@ -13,6 +13,7 @@
         <result property="password" column="password"/>
         <result property="email" column="email"/>
         <result property="departmentId" column="department_id"/>
+        <result property="statusEnum" column="status_enum"/>
         <association property="face" javaType="com.school.vo.file.FileDataVO">
             <id property="id" column="face" />
             <result property="name" column="file_name" />
@@ -28,6 +29,7 @@
         u.password,
         u.email,
         u.department_id,
+        u.status_enum,
         f.id as face,
         f.file_name
         FROM user u
@@ -66,6 +68,9 @@
             </if>
             <if test="departmentId != null">
                 department_id = #{departmentId},
+            </if>
+            <if test="statusEnum != null">
+                status_enum = #{statusEnum},
             </if>
             <if test="imageAddress != null">
                 image_address = #{imageAddress}
@@ -113,6 +118,19 @@
         LEFT JOIN user_role ur ON u.id = ur.user_id
         <where>
             u.telephone=#{account} OR u.email=#{account}
+        </where>
+    </select>
+
+    <select id="selectNoActivatedUser" resultType="com.school.vo.user.SelectNoActivatedUserVO">
+        SELECT
+        u.id,
+        u.email
+        FROM user u
+        <where>
+            <if test="email != null">
+                email = #{email}
+            </if>
+            and u.status_enum = 2
         </where>
     </select>
 </mapper>

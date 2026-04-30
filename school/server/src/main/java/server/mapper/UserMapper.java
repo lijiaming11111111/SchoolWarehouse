@@ -7,6 +7,7 @@ import com.school.dto.user.PageQueryUserDTO;
 import com.school.entity.User;
 import com.school.vo.user.CurrentUserDataVO;
 import com.school.vo.user.PageQueryUserVO;
+import com.school.vo.user.SelectNoActivatedUserVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -84,4 +85,8 @@ public interface UserMapper {
     Integer selectUserByEmail(String email);
 
 
+    @Select("select * from user where id=#{id} and status_enum=2")
+    User getUserStatus(String userId);
+
+    Page<SelectNoActivatedUserVO> selectNoActivatedUser(String email);
 }

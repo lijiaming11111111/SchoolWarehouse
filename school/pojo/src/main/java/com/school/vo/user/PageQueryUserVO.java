@@ -1,6 +1,7 @@
 package com.school.vo.user;
 
 import com.school.enums.user.Gender;
+import com.school.enums.user.StatusEnum;
 import com.school.vo.file.FileDataVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -36,6 +37,9 @@ public class PageQueryUserVO {
 
     @Schema(description = "部门id")
     private String departmentId;
+
+    @Schema(description = "用户账号状态（0.禁用；1.正常；2.未激活）")
+    private StatusEnum statusEnum;
 
     @Schema(description = "头像文件ID")
     private FileDataVO face;

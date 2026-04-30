@@ -34,6 +34,9 @@ public class UpdateUserDTO {
     @Email(message = "邮箱格式不正确")
     private String email;
 
+    @Schema(description = "用户账号状态（0.禁用；1.正常）")
+    private StatusEnum statusEnum;
+
     @Schema(description = "部门id")
     private String departmentId;
 }

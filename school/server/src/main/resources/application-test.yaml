@@ -35,7 +35,7 @@ minio:
   bucket: "schoolwarehouse"
 
 file:
-  url: "https://47.118.31.5/api/file/download"
+  url: "http://47.118.31.5:9191/file/download"
   pre-signature:
     secret-key : "MKYYRDzdKc23uM1VNqiNh4shzCGcfpH0"
     expire: 5 #过期时间 小时

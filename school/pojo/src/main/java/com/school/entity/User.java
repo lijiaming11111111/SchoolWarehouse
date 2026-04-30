@@ -34,7 +34,7 @@ public class User {
     @Schema(description = "邮箱")
     private String email;
 
-    @Schema(description = "账号状态枚举类(1,正常 0,禁用)")
+    @Schema(description = "用户账号状态（0.禁用；1.正常；2.未激活）")
     private StatusEnum statusEnum;
 
     @Schema(description = "部门id")

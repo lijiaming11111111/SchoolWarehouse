@@ -1,6 +1,6 @@
 package com.school.dto.role;
 
-import com.school.enums.user.StatusEnum;
+import com.school.enums.role.StatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class InsertRoleDTO {
     @NotBlank(message = "角色编码不能为空")
     private String roleCode;
 
-    @Schema(description = "账号状态枚举类(1,正常 0,禁用)")
-    @NotNull(message = "账号状态不能为空")
+    @Schema(description = "角色状态枚举类(1,正常 0,禁用)")
+    @NotNull(message = "角色状态不能为空")
     private StatusEnum statusEnum;
 }

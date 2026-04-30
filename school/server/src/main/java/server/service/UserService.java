@@ -5,6 +5,7 @@ import com.school.result.PageResult;
 
 import com.school.vo.user.CurrentUserDataVO;
 import com.school.vo.user.PageQueryUserVO;
+import com.school.vo.user.SelectNoActivatedUserVO;
 import com.school.vo.user.UserLoginVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,4 +52,8 @@ public interface UserService {
     Boolean register(RegisterDTO registerDTO);
 
     Boolean sendRegisterEmail(String email);
+
+    Boolean activate(String userId);
+
+    PageResult<SelectNoActivatedUserVO> selectNoActivatedUser(SelectNoActivatedUserDTO selectNoActivatedUserDTO);
 }
