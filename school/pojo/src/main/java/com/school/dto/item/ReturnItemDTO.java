@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class ReturnItemDTO {
-    @Schema(description = "设备ID")
-    @NotBlank(message = "设备ID不能为空")
+    @Schema(description = "借用设备ID")
+    @NotBlank(message = "借用设备ID不能为空")
     private String id;
 
     @Schema(description = "备注")

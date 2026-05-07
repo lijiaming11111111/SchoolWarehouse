@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -18,10 +19,10 @@ public class BorrowItemDTO {
     @NotNull(message = "借用数量不能为空")
     private Long borrowNumber;
 
-    @Schema(description = "归还时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Schema(description = "归还时间(yyyy-MM-dd)")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "归还时间不能为空")
-    private LocalDateTime returnTime;
+    private LocalDate returnTime;
 
     @Schema(description = "备注")
     private String remark;

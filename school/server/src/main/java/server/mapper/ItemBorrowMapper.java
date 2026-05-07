@@ -15,7 +15,7 @@ public interface ItemBorrowMapper {
             "#{remark})")
     void insertItemBorrow(ItemBorrow itemBorrow);
 
-    @Select("select * from item_borrow where item_id = #{id}")
+    @Select("select * from item_borrow where id = #{id}")
     ItemBorrow selectById(String id);
 
     void updateItemBorrow(ItemBorrow borrow);

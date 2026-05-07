@@ -23,5 +23,5 @@ public interface ItemService {
 
     Boolean borrowItem(BorrowItemDTO borrowItemDTO);
 
-    Boolean returnItem(ReturnItemDTO returnItemDTO);
+    Boolean returnItem(String id);
 }

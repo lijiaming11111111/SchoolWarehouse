@@ -91,7 +91,7 @@ public class ItemController {
     @PostMapping("/returnItem")
     @Operation(summary = "归还设备")
     @ApiOperationSupport(author = "厉佳铭")
-    public Result<Boolean> returnItem(@Validated @RequestBody ReturnItemDTO returnItemDTO) {
-        return Result.success("归还设备成功", itemService.returnItem(returnItemDTO));
+    public Result<Boolean> returnItem(@Validated @RequestParam String id) {
+        return Result.success("归还设备成功", itemService.returnItem(id));
     }
 }

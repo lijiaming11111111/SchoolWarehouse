@@ -5,6 +5,7 @@ import com.school.enums.item.borrow.Status;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -57,8 +58,8 @@ public class ItemBorrow {
      * 预计归还时间
      */
     @Schema(description = "预计归还时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime returnTime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate returnTime;
 
     /**
      * 实际归还时间

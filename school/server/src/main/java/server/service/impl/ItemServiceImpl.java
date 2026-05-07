@@ -1,5 +1,6 @@
 package server.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.BeanUtils;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -187,7 +188,7 @@ public class ItemServiceImpl implements ItemService {
         if (itemId == 0L) {
             throw new BaseException("设备不存在");
         }
-        if (borrowItemDTO.getReturnTime().isAfter(LocalDateTime.now())) {
+        if (!borrowItemDTO.getReturnTime().isAfter(LocalDate.now())) {
             throw new BaseException("归还时间必须在当前时间之后");
         }
         Long safeStock = itemMapper.selectItem(borrowItemDTO.getId()).getSafeStock();
@@ -240,9 +241,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Boolean returnItem(ReturnItemDTO returnItemDTO) {
+    public Boolean returnItem(String id) {
         // 查询借用记录
-        ItemBorrow borrow = itemBorrowMapper.selectById(returnItemDTO.getId());
+        ItemBorrow borrow = itemBorrowMapper.selectById(id);
         if (borrow == null) {
             throw new BaseException("借用记录不存在");
         }
@@ -250,8 +251,16 @@ public class ItemServiceImpl implements ItemService {
         if (borrow.getStatus() == Status.RETURN) {
             throw new BaseException("该设备已归还，无需重复操作");
         }
-        Item item = new Item();
-        item.setCurrentStock(item.getCurrentStock() + borrow.getQuantity());
+
+        // 修复：先从数据库查询设备信息
+        Item item = itemMapper.selectByItem(borrow.getItemId());
+        if (item == null) {
+            throw new BaseException("设备不存在");
+        }
+
+        Long beforeStock = item.getCurrentStock();
+        Long afterStock = beforeStock + borrow.getQuantity();
+        item.setCurrentStock(afterStock);
         itemMapper.updateItem(item);
 
         //  更新借用记录为已归还
@@ -260,7 +269,8 @@ public class ItemServiceImpl implements ItemService {
         itemBorrowMapper.updateItemBorrow(borrow);
 
         // 插入库存流水（flow_type=4 归还）
-        ItemFlow itemFlow= new ItemFlow();
+        ItemFlow itemFlow = new ItemFlow();
+        itemFlow.setId(String.valueOf(IdWorker.getId()));
         itemFlow.setItemId(item.getId());
         itemFlow.setItemName(item.getItemName());
         itemFlow.setFlowType(FlowType.RETURN);

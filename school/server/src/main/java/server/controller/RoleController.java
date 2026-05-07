@@ -2,7 +2,6 @@ package server.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.school.dto.role.*;
-import com.school.entity.Role;
 import com.school.result.PageResult;
 import com.school.result.Result;
 import com.school.vo.role.PageSelectRoleVO;
@@ -14,11 +13,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import server.service.FileService;
 import server.service.RoleService;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/role")

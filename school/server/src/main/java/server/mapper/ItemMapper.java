@@ -24,6 +24,9 @@ public interface ItemMapper {
     @Select("select * from item where id = #{id}")
     SelectItemVO selectItem(String id);
 
+    @Select("select * from item where id = #{id}")
+    Item selectByItem(String id);
+
     @Delete("delete from item where id = #{id}")
     void deleteItem(String id);
 
