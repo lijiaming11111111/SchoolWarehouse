@@ -13,4 +13,13 @@
             where id = #{id}
         </set>
     </update>
+    <select id="pageQueryItemBorrow" resultType="com.school.vo.item.borrow.PageSelectItemBorrowVO">
+        select *
+        from item_borrow
+        <where>
+            <if test="borrowerUserName != null">
+                borrower_user_name LIKE CONCAT('%', #{borrowerUserName}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>

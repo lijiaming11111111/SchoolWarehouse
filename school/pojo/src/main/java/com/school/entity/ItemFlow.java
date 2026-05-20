@@ -29,6 +29,9 @@ public class ItemFlow {
     @Schema(description = "设备名称")
     private String itemName;
 
+    @Schema(description = "用户ID")
+    private String userId;
+
     /**
      * 类型(1=入库 2=出库 3=借用 4=归还)
      */

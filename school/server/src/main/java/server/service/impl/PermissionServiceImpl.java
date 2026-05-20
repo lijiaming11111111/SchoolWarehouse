@@ -75,7 +75,6 @@ public class PermissionServiceImpl implements PermissionService {
         // 获取所有权限
         List<SelectPermissionVO> permissionVOList = permissionMapper.selectPermission();
 
-        // 构建权限ID到权限对象的映射，方便快速查找
         Map<String, SelectPermissionVO> permissionMap = new HashMap<>();
         for (SelectPermissionVO permission : permissionVOList) {
             permissionMap.put(permission.getId(), permission);

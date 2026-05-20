@@ -148,6 +148,7 @@ public class ItemServiceImpl implements ItemService {
         itemFlow.setId(String.valueOf(IdWorker.getId()));
         itemFlow.setItemId(putItemDTO.getId());
         itemFlow.setItemName(itemMapper.selectItem(putItemDTO.getId()).getItemName());
+        itemFlow.setUserId(String.valueOf(BaseContext.getCurrentUserId()));
         itemFlow.setFlowType(FlowType.PUT);
         itemFlow.setQuantity(putItemDTO.getPutStock());
         itemFlow.setBeforeStock(itemMapper.selectCountItem(putItemDTO.getId()));
@@ -171,6 +172,7 @@ public class ItemServiceImpl implements ItemService {
         itemFlow.setId(String.valueOf(IdWorker.getId()));
         itemFlow.setItemId(stockItemDTO.getId());
         itemFlow.setItemName(itemMapper.selectItem(stockItemDTO.getId()).getItemName());
+        itemFlow.setUserId(String.valueOf(BaseContext.getCurrentUserId()));
         itemFlow.setFlowType(FlowType.STOCK);
         itemFlow.setQuantity(stockItemDTO.getStockNumber());
         itemFlow.setBeforeStock(itemMapper.selectCountItem(stockItemDTO.getId()));
@@ -230,6 +232,7 @@ public class ItemServiceImpl implements ItemService {
         itemFlow.setId(String.valueOf(IdWorker.getId()));
         itemFlow.setItemId(borrowItemDTO.getId());
         itemFlow.setItemName(itemMapper.selectItem(borrowItemDTO.getId()).getItemName());
+        itemFlow.setUserId(String.valueOf(BaseContext.getCurrentUserId()));
         itemFlow.setFlowType(FlowType.BORROW);
         itemFlow.setQuantity(borrowItemDTO.getBorrowNumber());
         itemFlow.setBeforeStock(itemMapper.selectCountItem(borrowItemDTO.getId()));
@@ -268,11 +271,11 @@ public class ItemServiceImpl implements ItemService {
         borrow.setActualReturnTime(LocalDateTime.now());
         itemBorrowMapper.updateItemBorrow(borrow);
 
-        // 插入库存流水（flow_type=4 归还）
         ItemFlow itemFlow = new ItemFlow();
         itemFlow.setId(String.valueOf(IdWorker.getId()));
         itemFlow.setItemId(item.getId());
         itemFlow.setItemName(item.getItemName());
+        itemFlow.setUserId(String.valueOf(BaseContext.getCurrentUserId()));
         itemFlow.setFlowType(FlowType.RETURN);
         itemFlow.setQuantity(borrow.getQuantity());
         itemFlow.setBeforeStock(item.getCurrentStock());
@@ -282,4 +285,6 @@ public class ItemServiceImpl implements ItemService {
         itemMapper.insertItemFlow(itemFlow);
         return true;
     }
+
+
 }

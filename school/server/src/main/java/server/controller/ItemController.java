@@ -94,4 +94,5 @@ public class ItemController {
     public Result<Boolean> returnItem(@Validated @RequestParam String id) {
         return Result.success("归还设备成功", itemService.returnItem(id));
     }
+
 }

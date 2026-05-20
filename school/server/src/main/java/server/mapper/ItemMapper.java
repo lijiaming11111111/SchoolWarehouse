@@ -39,8 +39,8 @@ public interface ItemMapper {
     @Select("select current_stock from item where id = #{id}")
     Long selectCountItem(String id);
 
-    @Insert("insert into item_flow (id, item_id, item_name, flow_type, quantity, before_stock, after_stock, remark,create_time) " +
-            "values (#{id}, #{itemId}, #{itemName}, #{flowType}, #{quantity}, #{beforeStock}, #{afterStock}, #{remark}, #{createTime})")
+    @Insert("insert into item_flow (id, item_id, item_name, user_id, flow_type, quantity, before_stock, after_stock, remark,create_time) " +
+            "values (#{id}, #{itemId}, #{itemName}, #{userId}, #{flowType}, #{quantity}, #{beforeStock}, #{afterStock}, #{remark}, #{createTime})")
     void insertItemFlow(ItemFlow itemFlow);
 
     @Select("select status from item where id = #{id}")

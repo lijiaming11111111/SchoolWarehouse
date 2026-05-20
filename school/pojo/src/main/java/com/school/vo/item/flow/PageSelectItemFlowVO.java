@@ -18,6 +18,12 @@ public class PageSelectItemFlowVO {
     @Schema(description = "设备名称")
     private String itemName;
 
+    @Schema(description = "操作人ID")
+    private String userId;
+
+    @Schema(description = "操作人姓名")
+    private String userName;
+
     @Schema(description = "类型(1=入库 2=出库 3=借用 4=归还)")
     private Integer flowType;
 

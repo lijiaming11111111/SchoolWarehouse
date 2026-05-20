@@ -1,6 +1,9 @@
 package server.mapper;
 
+import com.github.pagehelper.Page;
+import com.school.dto.item.borrow.PageSelectItemBorrowDTO;
 import com.school.entity.ItemBorrow;
+import com.school.vo.item.borrow.PageSelectItemBorrowVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -19,4 +22,6 @@ public interface ItemBorrowMapper {
     ItemBorrow selectById(String id);
 
     void updateItemBorrow(ItemBorrow borrow);
+
+    Page<PageSelectItemBorrowVO> pageQueryItemBorrow(PageSelectItemBorrowDTO pageSelectItemBorrowDTO);
 }
